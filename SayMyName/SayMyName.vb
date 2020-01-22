@@ -4,7 +4,7 @@
 'Say My Name
 'https://github.com/chanric2/TJR-VS-S20
 
-Module SayMyName
+Module sayMyName
 
     Sub Main()
 
