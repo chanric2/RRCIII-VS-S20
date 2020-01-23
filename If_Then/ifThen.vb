@@ -18,7 +18,7 @@ Module IfThen
         Console.WriteLine("Select second number")
         secondNumber = Console.ReadLine()
 
-        'This selction of code below is to compare the values. Based on the first true condition the code will end.
+        'This selction of code below is to compare the values. Based on the first TRUE condition the code will end.
         If firstNumber > secondNumber Then
             Console.WriteLine("First number is bigger than the second.")
         ElseIf firstNumber < secondNumber Then
