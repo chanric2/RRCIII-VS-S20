@@ -17,7 +17,7 @@ Module SayUserMessage
         Console.WriteLine("Hello, To Get Started Please Enter Your Username. Then Hit Enter.")
         username = Console.ReadLine()
 
-        If username = "Emily" Or "Joe" Then
+        If username = "Emily" Or username = "Joe" Then
             Console.WriteLine("Welcome " & username & " To Our Facility!")
         ElseIf username <> "Emily" Or username <> "Joe" Then
             Console.WriteLine("You Do Not Have Access, Please Leave Now Or We Will Call The Police.")
