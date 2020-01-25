@@ -8,17 +8,17 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("Calculator")>
+<Assembly: AssemblyTitle("calc")>
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("Calculator")>
+<Assembly: AssemblyProduct("calc")>
 <Assembly: AssemblyCopyright("Copyright ©  2020")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly: Guid("1c4db792-200e-4d6d-9026-da61c4331bf1")>
+<Assembly: Guid("db145e73-3fea-4bea-b53b-883df8559f6f")>
 
 ' Version information for an assembly consists of the following four values:
 '

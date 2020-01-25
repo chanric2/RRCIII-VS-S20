@@ -1,13 +1,13 @@
 ﻿'Richard Chandler III
 'RCET0265
 'Spring 2020
-'Simple Calculator
+'Calculator
 'https://github.com/rosstimo/RRCIII-VS-S20
 
 Option Strict On
 Option Explicit On
 
-Module simpleCalculator
+Module Calculator
 
     Sub Main()
 
