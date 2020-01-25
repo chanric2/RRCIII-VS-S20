@@ -7,7 +7,7 @@
 Option Strict On
 Option Explicit On
 
-Module Module1
+Module simpleCalculator
 
     Sub Main()
 
