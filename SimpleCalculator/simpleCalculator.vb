@@ -7,6 +7,8 @@
 Option Strict On
 Option Explicit On
 
+'new comment
+
 Module simpleCalculator
 
     Sub Main()
