@@ -8,6 +8,7 @@ Option Strict On
 Option Explicit On
 
 'new comment bla bla
+'test
 
 Module simpleCalculator
 
