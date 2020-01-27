@@ -7,7 +7,7 @@
 Option Strict On
 Option Explicit On
 
-'new comment
+'new comment bla bla
 
 Module simpleCalculator
 
