@@ -7,6 +7,8 @@
 Option Strict On
 Option Explicit On
 
+'this code is to show two operations comparing the answer
+
 Module Calculator
 
     Sub Main()

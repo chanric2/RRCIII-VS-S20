@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{02AAFFB7-448C-4895-BDCF-C70ABA45BA09}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <StartupObject>MathWithComparisons.Module1</StartupObject>
+    <StartupObject>MathWithComparisons.simpleCalculator</StartupObject>
     <RootNamespace>MathWithComparisons</RootNamespace>
     <AssemblyName>MathWithComparisons</AssemblyName>
     <FileAlignment>512</FileAlignment>
