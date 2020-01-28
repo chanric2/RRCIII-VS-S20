@@ -7,7 +7,7 @@
 Option Explicit On
 Option Strict On
 
-Module Module1
+Module Loops
 
     Sub Main()
 
