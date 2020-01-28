@@ -7,9 +7,6 @@
 Option Strict On
 Option Explicit On
 
-'new comment bla bla
-'test
-
 Module simpleCalculator
 
     Sub Main()
@@ -23,11 +20,28 @@ Module simpleCalculator
 
         'prompt user for first number, first operation, and second number for the first equation
         Console.WriteLine("Select an integer. Press ENTER when done.")
-        firstNumber = CInt(Console.ReadLine())
+        Try
+            firstNumber = CInt(Console.ReadLine())
+        Catch
+            Console.Clear()
+            Console.WriteLine("keep only integers")
+        End Try
+
         Console.WriteLine("Select a math operation by typing the number associated to it; 1.Add, 2.Subtract, 3.Multiply, 4.Divide. Press ENTER when done.")
-        firstOperation = CInt(Console.ReadLine())
+        Try
+            firstOperation = CInt(Console.ReadLine())
+        Catch
+            Console.Clear()
+            Console.WriteLine("keep only integers")
+        End Try
+
         Console.WriteLine("Select an integer. Press ENTER when done.")
-        secondNumber = CInt(Console.ReadLine())
+        Try
+            secondNumber = CInt(Console.ReadLine())
+        Catch
+            Console.Clear()
+            Console.WriteLine("keep only integers")
+        End Try
 
         'prompt user for third number, second operation, and fourth number for the second equation
         'Console.WriteLine("Select an integer. Press ENTER when done.")
