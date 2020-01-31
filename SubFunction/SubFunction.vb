@@ -12,21 +12,26 @@ Module SubFunction
 
     Sub Main()
         Dim number As Integer
+        Dim name As String
         number = 7
-
+        name = "Daisy"
         Console.WriteLine("This is the Main.")
         Console.WriteLine(number)
 
 
         Console.ReadLine()
         MySub(number)
-        Console.WriteLine("in sub")
+        Console.WriteLine("in sub main")
         Console.WriteLine(number)
         Console.ReadLine()
         MyFunc(number)
         Console.WriteLine("in Main")
         Console.WriteLine(number)
+        Console.ReadLine()
         Console.WriteLine(MyFunc(number))
+        Console.ReadLine()
+        'Rename(name)
+        Console.WriteLine("your name was " & name & " your new name is " & Rename(name))
         Console.ReadLine()
     End Sub
 
@@ -56,4 +61,11 @@ Module SubFunction
         Return number
     End Function
 
+    Function Rename(name As String) As String
+        Console.WriteLine(name)
+        Console.ReadLine()
+
+        name = "Richard"
+        Return name
+    End Function
 End Module
