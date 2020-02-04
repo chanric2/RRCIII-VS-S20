@@ -17,8 +17,6 @@ Module SubFunction
         name = "Daisy"
         Console.WriteLine("This is the Main.")
         Console.WriteLine(number)
-
-
         Console.ReadLine()
         MySub(number)
         Console.WriteLine("in sub main")
