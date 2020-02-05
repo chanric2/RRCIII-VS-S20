@@ -34,18 +34,18 @@ Module SubFunction
         'Rename(name)
         'Console.WriteLine("your name was " & name & " your new name is " & Rename(name))
         'Console.ReadLine()
-        Console.WriteLine("Enter a number...Press ENTER")
-        firstNumber = CInt(Console.ReadLine())
-        Console.WriteLine("Enter another number...Press ENTER")
-        secondNumber = CInt(Console.ReadLine())
-        Console.WriteLine("Type the math function you wish to apply...Press ENTER")
-        operatorChoice = Console.ReadLine()
-        Console.Clear()
-        mathmatics(firstNumber, secondNumber, operatorChoice)
-        Console.Read()
+        ''Console.WriteLine("Enter a number...Press ENTER")
+        ''firstNumber = CInt(Console.ReadLine())
+        ''Console.WriteLine("Enter another number...Press ENTER")
+        ''secondNumber = CInt(Console.ReadLine())
+        ''Console.WriteLine("Type the math function you wish to apply...Press ENTER")
+        ''operatorChoice = Console.ReadLine()
+        ''Console.Clear()
+        ''mathmatics(firstNumber, secondNumber, operatorChoice)
+        ''Console.Read()
 
-        ' pattern(5)
-        ' Console.Read()
+        pattern(5)
+        Console.Read()
     End Sub
 
     Sub MySub(number As Integer)
@@ -85,28 +85,33 @@ Module SubFunction
     Sub mathmatics(firstNumber As Integer, secondNumber As Integer, operatorChoice As String)
 
         'this code is to function as a math operator
-        If operatorChoice = "Add" Then
-            Console.WriteLine(firstNumber & "+" & secondNumber & "=" & firstNumber + secondNumber)
+        ''If operatorChoice = "Add" Then
+        ''    Console.WriteLine(firstNumber & "+" & secondNumber & "=" & firstNumber + secondNumber)
 
-        ElseIf operatorChoice = "Subract" Then
-            Console.WriteLine(firstNumber & "-" & secondNumber & "=" & firstNumber - secondNumber)
+        ''ElseIf operatorChoice = "Subract" Then
+        ''    Console.WriteLine(firstNumber & "-" & secondNumber & "=" & firstNumber - secondNumber)
 
-        ElseIf operatorChoice <> "Add" Or operatorChoice <> "Subtract" Then
-            Console.WriteLine("false")
+        ''ElseIf operatorChoice <> "Add" Or operatorChoice <> "Subtract" Then
+        ''    Console.WriteLine("false")
 
-        End If
+        ''End If
 
     End Sub
 
     Sub pattern(length As Integer)
-        'Dim character As String
-        'Dim pattern As String
+        Dim character As String
+        Dim pattern As String
 
-        'character = "*"
-        'For index = 1 To length
-        '    pattern &= character
-        '    Console.WriteLine(pattern)
-        'Next
+        character = "*"
+        pattern = ""
+        For index = 1 To length
+            pattern &= character
+            Console.WriteLine(pattern)
+        Next
+        For index = length - 1 To 1 Step -1
+            pattern = Left(pattern, index)
+            Console.WriteLine(pattern)
+        Next
 
     End Sub
 End Module
