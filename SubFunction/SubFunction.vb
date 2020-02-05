@@ -43,9 +43,11 @@ Module SubFunction
         ''Console.Clear()
         ''mathmatics(firstNumber, secondNumber, operatorChoice)
         ''Console.Read()
-
-        pattern(5)
+        ' For i = 1 To 5 Step 1
+        pattern(80, "*")
+        ' Next
         Console.Read()
+
     End Sub
 
     Sub MySub(number As Integer)
@@ -98,18 +100,19 @@ Module SubFunction
 
     End Sub
 
-    Sub pattern(length As Integer)
-        Dim character As String
+    Sub pattern(length As Integer, character As String)
+        ' Dim character As String
         Dim pattern As String
+        'Console.WriteLine(Len(character))
 
-        character = "*"
+        'character = "*"
         pattern = ""
         For index = 1 To length
             pattern &= character
             Console.WriteLine(pattern)
         Next
         For index = length - 1 To 1 Step -1
-            pattern = Left(pattern, index)
+            pattern = Left(pattern, index * Len(character))
             Console.WriteLine(pattern)
         Next
 
