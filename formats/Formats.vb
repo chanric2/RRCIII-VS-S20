@@ -13,17 +13,18 @@ Module Formats
     Sub Main()
 
         'currency value
-        Dim value As Decimal
-        Console.WriteLine("Enter withdrawl amount, NO CHANGE")
-        value = CDec(Console.ReadLine())
-        value.ToString("C")
-        Console.WriteLine(value)
-        Console.WriteLine(value.ToString("C"))
+        'Dim value As Decimal
+        'Console.WriteLine("Enter withdrawl amount, NO CHANGE")
+        'value = CDec(Console.ReadLine())
+        'value.ToString("C")
+        'Console.WriteLine(value)
+        'Console.WriteLine(value.ToString("C"))
 
         'Hexadecimal value
         ' Console.WriteLine(value.ToString("X"))
 
-        TooManySpaces()
+        '  TooManySpaces()
+        TimesTable()
         Console.ReadLine()
     End Sub
 
@@ -34,6 +35,21 @@ Module Formats
         Console.WriteLine(Len(message))
         message = Trim(message)
         Console.WriteLine(Len(message))
+
+    End Sub
+
+    Sub TimesTable()
+
+        Dim result As Integer
+
+        For i = 1 To 12
+
+            For j = 1 To 12
+                result = i * j
+                Console.Write(result.ToString.PadLeft(5))
+            Next
+            Console.WriteLine()
+        Next
 
     End Sub
 
