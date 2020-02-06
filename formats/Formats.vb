@@ -13,17 +13,28 @@ Module Formats
     Sub Main()
 
         'currency value
-        Dim value As Integer
+        Dim value As Decimal
         Console.WriteLine("Enter withdrawl amount, NO CHANGE")
-        value = CInt(Console.ReadLine())
+        value = CDec(Console.ReadLine())
         value.ToString("C")
         Console.WriteLine(value)
         Console.WriteLine(value.ToString("C"))
 
         'Hexadecimal value
-        Console.WriteLine(value.ToString("X"))
+        ' Console.WriteLine(value.ToString("X"))
 
+        TooManySpaces()
         Console.ReadLine()
+    End Sub
+
+    Sub TooManySpaces()
+
+        Dim message As String
+        message = "                                          Richard                           "
+        Console.WriteLine(Len(message))
+        message = Trim(message)
+        Console.WriteLine(Len(message))
+
     End Sub
 
 End Module
