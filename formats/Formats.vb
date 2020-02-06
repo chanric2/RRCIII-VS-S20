@@ -13,8 +13,17 @@ Module Formats
     Sub Main()
 
         'currency value
-        Console.WriteLine(10)
+        Dim value As Integer
+        Console.WriteLine("Enter withdrawl amount, NO CHANGE")
+        value = CInt(Console.ReadLine())
+        value.ToString("C")
+        Console.WriteLine(value)
+        Console.WriteLine(value.ToString("C"))
         Console.ReadLine()
+
+
+
+
 
     End Sub
 
