@@ -46,7 +46,7 @@ Module Formats
 
             For j = 1 To 12
                 result = i * j
-                Console.Write(result.ToString.PadLeft(5))
+                Console.Write(result.ToString("C").PadLeft(8) & "|")
             Next
             Console.WriteLine()
         Next
