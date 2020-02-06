@@ -18,6 +18,7 @@ Module BetterCalculator
 
         Console.WriteLine("Choose a number:")
         Try
+            numberOne = Console.ReadLine()
             numberOne = CInt(Console.ReadLine())
         Catch ex As Exception
             Console.WriteLine("You entered " & Chr(34) & numberOne & Chr(34) & ", please enter a whole number.")
@@ -28,8 +29,8 @@ Module BetterCalculator
 
 
 
-        Console.WriteLine("Choose a number:")
-        numberTwo = CInt(Console.ReadLine())
+        'Console.WriteLine("Choose a number:")
+        'numberTwo = CInt(Console.ReadLine())
 
 
 
@@ -38,7 +39,7 @@ Module BetterCalculator
 
 
 
-        Console.WriteLine(numberOne & numberTwo)
+        Console.WriteLine(numberOne) '& numberTwo)
         Console.ReadLine()
     End Sub
 
