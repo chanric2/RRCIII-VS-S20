@@ -19,12 +19,11 @@ Module Formats
         value.ToString("C")
         Console.WriteLine(value)
         Console.WriteLine(value.ToString("C"))
+
+        'Hexadecimal value
+        Console.WriteLine(value.ToString("X"))
+
         Console.ReadLine()
-
-
-
-
-
     End Sub
 
 End Module
