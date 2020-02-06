@@ -47,7 +47,7 @@ Module SubFunction
         pattern(80, "*")
         ' Next
         Console.Read()
-
+        sound()
     End Sub
 
     Sub MySub(number As Integer)
@@ -116,5 +116,8 @@ Module SubFunction
             Console.WriteLine(pattern)
         Next
 
+    End Sub
+    Sub sound()
+        Console.Beep(13000, 1000) '(Frequency, Duration ms)'
     End Sub
 End Module
