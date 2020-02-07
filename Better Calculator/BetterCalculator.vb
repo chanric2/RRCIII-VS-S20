@@ -12,18 +12,25 @@ Module BetterCalculator
 
     Sub Main()
         Dim numberOne As String
-        Dim numberTwo As String
+        ' Dim numberTwo As String
+        Dim userReprompt As Boolean
+
+        userReprompt = True
 
         Console.WriteLine("Please enter two numbers. Enter 'Q' at any time to quit")
 
         Console.WriteLine("Choose a number:")
-        Try
-            numberOne = Console.ReadLine()
-            numberOne = CInt(Console.ReadLine())
-        Catch ex As Exception
-            Console.WriteLine("You entered " & Chr(34) & numberOne & Chr(34) & ", please enter a whole number.")
-        End Try
-
+        Do While userReprompt = True
+            Try
+                numberOne = Console.ReadLine()
+                numberOne = CInt(numberOne)
+                userReprompt = False
+            Catch ex As Exception
+                userReprompt = False
+                Console.Clear()
+                Console.WriteLine("You entered " & Chr(34) & numberOne & Chr(34) & ", please enter a whole number.")
+            End Try
+        Loop
 
 
 
