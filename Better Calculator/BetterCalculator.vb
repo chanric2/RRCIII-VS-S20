@@ -14,72 +14,68 @@ Module BetterCalculator
         Dim numberOne As String
         Dim numberTwo As String
         Dim firstOperation As Integer
+        Dim userQuit As String
         Dim userReprompt As Boolean
         Dim quit As Boolean
 
         userReprompt = True
-        ' quit = False
+        quit = False
+        userQuit = "q"
 
         Console.WriteLine("Please enter two numbers. Enter 'Q' at any time to quit")
 
-        ' Do While quit = False
-        'choose first number
-        Console.WriteLine("Choose a number:")
+        Do While quit = False
+            'choose first number
+            Console.WriteLine("Choose a number:")
             Do While userReprompt = True
                 Try
+                    If numberOne = userQuit Then
+                        quit = True
+                    End If
                     numberOne = Console.ReadLine()
                     numberOne = CInt(numberOne)
                     Console.WriteLine("You entered " & Chr(34) & numberOne & Chr(34))
                     userReprompt = False
-                'If numberOne = "Q" Then
-                '    quit = True
-                'End If
-            Catch ex As Exception
+                Catch ex As Exception
                     userReprompt = True
-                    Console.Clear()
+                    '' Console.Clear()
                     Console.WriteLine("You entered " & Chr(34) & numberOne & Chr(34) & ", please enter a whole number.")
                 End Try
             Loop
 
-        ' quit = False
-        userReprompt = True
+            quit = False
+            userReprompt = True
 
             'choose second number
             Console.WriteLine("Choose a number:")
             Do While userReprompt = True
-            Try
-                numberTwo = Console.ReadLine()
-                numberTwo = CInt(numberTwo)
-                Console.WriteLine("You entered " & Chr(34) & numberTwo & Chr(34))
-                userReprompt = False
-                'If numberTwo = "Q" Then
-                '    quit = True
-                'End If
-            Catch ex As Exception
-                userReprompt = True
-                    Console.Clear()
+                Try
+                    numberTwo = Console.ReadLine()
+                    numberTwo = CInt(numberTwo)
+                    Console.WriteLine("You entered " & Chr(34) & numberTwo & Chr(34))
+                    userReprompt = False
+                Catch ex As Exception
+                    userReprompt = True
+                    ''  Console.Clear()
                     Console.WriteLine("You entered " & Chr(34) & numberTwo & Chr(34) & ", please enter a whole number.")
                 End Try
             Loop
 
+            quit = False
             userReprompt = True
 
             Do While userReprompt = True
                 'choose operation
                 Console.WriteLine("Choose one of the following options: 1.Add, 2.Subtract, 3.Multiply, 4.Divide")
-            Try
-                firstOperation = Console.ReadLine()
-                userReprompt = False
-            Catch
-                userReprompt = True
-                Console.Clear()
-                'If CStr(firstOperation) = "Q" Then
-                '    quit = True
-                'End If
-            End Try
+                Try
+                    firstOperation = Console.ReadLine()
+                    userReprompt = False
+                Catch
+                    userReprompt = True
+                End Try
 
-            'performs the first operation choosen by user with the integers choosen by users and displays the answer
-            If firstOperation = 1 Then
+                'performs the first operation choosen by user with the integers choosen by users and displays the answer
+                If firstOperation = 1 Then
                     Console.WriteLine(numberOne & " + " & numberTwo & " = " & CInt(numberOne) + CInt(numberTwo))
 
                 ElseIf firstOperation = 2 Then
@@ -96,10 +92,10 @@ Module BetterCalculator
                     userReprompt = True
                 End If
             Loop
-        ' Loop
+        Loop
         'Console.Clear()
         'Console.WriteLine("You entered """"Q""""")
-        'Console.WriteLine("Have a nice day! :)")
+        Console.WriteLine("Have a nice day! :)")
         Console.ReadLine()
     End Sub
 
