@@ -14,24 +14,16 @@ Module BetterCalculator
         Dim numberOne As String
         Dim numberTwo As String
         Dim firstOperation As Integer
-        Dim userQuit As String
         Dim userReprompt As Boolean
-        Dim quit As Boolean
 
         userReprompt = True
-        quit = False
-        userQuit = "q"
 
         Console.WriteLine("Please enter two numbers. Enter 'Q' at any time to quit")
 
-        Do While quit = False
-            'choose first number
-            Console.WriteLine("Choose a number:")
+        'choose first number
+        Console.WriteLine("Choose a number:")
             Do While userReprompt = True
                 Try
-                    If numberOne = userQuit Then
-                        quit = True
-                    End If
                     numberOne = Console.ReadLine()
                     numberOne = CInt(numberOne)
                     Console.WriteLine("You entered " & Chr(34) & numberOne & Chr(34))
@@ -43,8 +35,7 @@ Module BetterCalculator
                 End Try
             Loop
 
-            quit = False
-            userReprompt = True
+        userReprompt = True
 
             'choose second number
             Console.WriteLine("Choose a number:")
@@ -61,8 +52,7 @@ Module BetterCalculator
                 End Try
             Loop
 
-            quit = False
-            userReprompt = True
+        userReprompt = True
 
             Do While userReprompt = True
                 'choose operation
@@ -92,8 +82,8 @@ Module BetterCalculator
                     userReprompt = True
                 End If
             Loop
-        Loop
-        'Console.Clear()
+
+        Console.Clear()
         'Console.WriteLine("You entered """"Q""""")
         Console.WriteLine("Have a nice day! :)")
         Console.ReadLine()
