@@ -26,22 +26,27 @@ Partial Class FormsControlsform
         Me.UpdateButton = New System.Windows.Forms.Button()
         Me.GoButton = New System.Windows.Forms.Button()
         Me.UserInputGroupBox = New System.Windows.Forms.GroupBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.StateLabel = New System.Windows.Forms.Label()
+        Me.AddressLabel = New System.Windows.Forms.Label()
+        Me.NameLabel = New System.Windows.Forms.Label()
+        Me.StateTextBox3 = New System.Windows.Forms.TextBox()
+        Me.AddressTextBox2 = New System.Windows.Forms.TextBox()
+        Me.NameTextBox1 = New System.Windows.Forms.TextBox()
         Me.UserSelectionGroupBox = New System.Windows.Forms.GroupBox()
         Me.UserPicture = New System.Windows.Forms.PictureBox()
+        Me.DisplayLabel = New System.Windows.Forms.Label()
         Me.UserInputGroupBox.SuspendLayout()
         CType(Me.UserPicture, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ExitButton
         '
+        Me.ExitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.ExitButton.Location = New System.Drawing.Point(280, 338)
         Me.ExitButton.Name = "ExitButton"
         Me.ExitButton.Size = New System.Drawing.Size(120, 85)
         Me.ExitButton.TabIndex = 0
-        Me.ExitButton.Text = "EXIT"
+        Me.ExitButton.Text = "E&XIT"
         Me.ExitButton.UseVisualStyleBackColor = True
         '
         'UpdateButton
@@ -64,35 +69,65 @@ Partial Class FormsControlsform
         '
         'UserInputGroupBox
         '
-        Me.UserInputGroupBox.Controls.Add(Me.TextBox3)
-        Me.UserInputGroupBox.Controls.Add(Me.TextBox2)
-        Me.UserInputGroupBox.Controls.Add(Me.TextBox1)
+        Me.UserInputGroupBox.Controls.Add(Me.StateLabel)
+        Me.UserInputGroupBox.Controls.Add(Me.AddressLabel)
+        Me.UserInputGroupBox.Controls.Add(Me.NameLabel)
+        Me.UserInputGroupBox.Controls.Add(Me.StateTextBox3)
+        Me.UserInputGroupBox.Controls.Add(Me.AddressTextBox2)
+        Me.UserInputGroupBox.Controls.Add(Me.NameTextBox1)
         Me.UserInputGroupBox.Location = New System.Drawing.Point(28, 36)
         Me.UserInputGroupBox.Name = "UserInputGroupBox"
         Me.UserInputGroupBox.Size = New System.Drawing.Size(200, 222)
         Me.UserInputGroupBox.TabIndex = 3
         Me.UserInputGroupBox.TabStop = False
         '
-        'TextBox3
+        'StateLabel
         '
-        Me.TextBox3.Location = New System.Drawing.Point(27, 76)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox3.TabIndex = 2
+        Me.StateLabel.AutoSize = True
+        Me.StateLabel.Location = New System.Drawing.Point(29, 83)
+        Me.StateLabel.Name = "StateLabel"
+        Me.StateLabel.Size = New System.Drawing.Size(32, 13)
+        Me.StateLabel.TabIndex = 5
+        Me.StateLabel.Text = "State"
         '
-        'TextBox2
+        'AddressLabel
         '
-        Me.TextBox2.Location = New System.Drawing.Point(27, 48)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox2.TabIndex = 1
+        Me.AddressLabel.AutoSize = True
+        Me.AddressLabel.Location = New System.Drawing.Point(16, 51)
+        Me.AddressLabel.Name = "AddressLabel"
+        Me.AddressLabel.Size = New System.Drawing.Size(45, 13)
+        Me.AddressLabel.TabIndex = 4
+        Me.AddressLabel.Text = "Address"
         '
-        'TextBox1
+        'NameLabel
         '
-        Me.TextBox1.Location = New System.Drawing.Point(27, 20)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 0
+        Me.NameLabel.AutoSize = True
+        Me.NameLabel.Location = New System.Drawing.Point(4, 27)
+        Me.NameLabel.Name = "NameLabel"
+        Me.NameLabel.Size = New System.Drawing.Size(57, 13)
+        Me.NameLabel.TabIndex = 3
+        Me.NameLabel.Text = "First Name"
+        '
+        'StateTextBox3
+        '
+        Me.StateTextBox3.Location = New System.Drawing.Point(73, 76)
+        Me.StateTextBox3.Name = "StateTextBox3"
+        Me.StateTextBox3.Size = New System.Drawing.Size(100, 20)
+        Me.StateTextBox3.TabIndex = 2
+        '
+        'AddressTextBox2
+        '
+        Me.AddressTextBox2.Location = New System.Drawing.Point(73, 48)
+        Me.AddressTextBox2.Name = "AddressTextBox2"
+        Me.AddressTextBox2.Size = New System.Drawing.Size(100, 20)
+        Me.AddressTextBox2.TabIndex = 1
+        '
+        'NameTextBox1
+        '
+        Me.NameTextBox1.Location = New System.Drawing.Point(73, 20)
+        Me.NameTextBox1.Name = "NameTextBox1"
+        Me.NameTextBox1.Size = New System.Drawing.Size(100, 20)
+        Me.NameTextBox1.TabIndex = 0
         '
         'UserSelectionGroupBox
         '
@@ -110,11 +145,20 @@ Partial Class FormsControlsform
         Me.UserPicture.TabIndex = 5
         Me.UserPicture.TabStop = False
         '
+        'DisplayLabel
+        '
+        Me.DisplayLabel.Location = New System.Drawing.Point(478, 270)
+        Me.DisplayLabel.Name = "DisplayLabel"
+        Me.DisplayLabel.Size = New System.Drawing.Size(163, 171)
+        Me.DisplayLabel.TabIndex = 6
+        '
         'FormsControlsform
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.CancelButton = Me.ExitButton
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.DisplayLabel)
         Me.Controls.Add(Me.UserPicture)
         Me.Controls.Add(Me.UserSelectionGroupBox)
         Me.Controls.Add(Me.UserInputGroupBox)
@@ -134,9 +178,13 @@ Partial Class FormsControlsform
     Friend WithEvents UpdateButton As Button
     Friend WithEvents GoButton As Button
     Friend WithEvents UserInputGroupBox As GroupBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents StateTextBox3 As TextBox
+    Friend WithEvents AddressTextBox2 As TextBox
+    Friend WithEvents NameTextBox1 As TextBox
     Friend WithEvents UserSelectionGroupBox As GroupBox
     Friend WithEvents UserPicture As PictureBox
+    Friend WithEvents StateLabel As Label
+    Friend WithEvents AddressLabel As Label
+    Friend WithEvents NameLabel As Label
+    Friend WithEvents DisplayLabel As Label
 End Class
