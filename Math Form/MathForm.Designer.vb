@@ -25,6 +25,8 @@ Partial Class MathForm
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.ExitButton = New System.Windows.Forms.Button()
+        Me.ValidateButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'TextBox1
@@ -48,15 +50,35 @@ Partial Class MathForm
         Me.TextBox3.Size = New System.Drawing.Size(100, 20)
         Me.TextBox3.TabIndex = 2
         '
-        'Form1
+        'ExitButton
+        '
+        Me.ExitButton.Location = New System.Drawing.Point(100, 131)
+        Me.ExitButton.Name = "ExitButton"
+        Me.ExitButton.Size = New System.Drawing.Size(86, 47)
+        Me.ExitButton.TabIndex = 3
+        Me.ExitButton.Text = "Exit"
+        Me.ExitButton.UseVisualStyleBackColor = True
+        '
+        'ValidateButton
+        '
+        Me.ValidateButton.Location = New System.Drawing.Point(8, 131)
+        Me.ValidateButton.Name = "ValidateButton"
+        Me.ValidateButton.Size = New System.Drawing.Size(86, 47)
+        Me.ValidateButton.TabIndex = 4
+        Me.ValidateButton.Text = "Validate"
+        Me.ValidateButton.UseVisualStyleBackColor = True
+        '
+        'MathForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(238, 213)
+        Me.Controls.Add(Me.ValidateButton)
+        Me.Controls.Add(Me.ExitButton)
         Me.Controls.Add(Me.TextBox3)
         Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.TextBox1)
-        Me.Name = "Form1"
+        Me.Name = "MathForm"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -66,4 +88,6 @@ Partial Class MathForm
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents ExitButton As Button
+    Friend WithEvents ValidateButton As Button
 End Class
