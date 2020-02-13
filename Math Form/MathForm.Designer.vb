@@ -55,7 +55,7 @@ Partial Class MathForm
         Me.ExitButton.Location = New System.Drawing.Point(100, 131)
         Me.ExitButton.Name = "ExitButton"
         Me.ExitButton.Size = New System.Drawing.Size(86, 47)
-        Me.ExitButton.TabIndex = 3
+        Me.ExitButton.TabIndex = 4
         Me.ExitButton.Text = "Exit"
         Me.ExitButton.UseVisualStyleBackColor = True
         '
@@ -64,7 +64,7 @@ Partial Class MathForm
         Me.ValidateButton.Location = New System.Drawing.Point(8, 131)
         Me.ValidateButton.Name = "ValidateButton"
         Me.ValidateButton.Size = New System.Drawing.Size(86, 47)
-        Me.ValidateButton.TabIndex = 4
+        Me.ValidateButton.TabIndex = 3
         Me.ValidateButton.Text = "Validate"
         Me.ValidateButton.UseVisualStyleBackColor = True
         '
