@@ -23,7 +23,7 @@
         If usermessage <> "" Then
             MsgBox(usermessage)
         End If
-        ''Console.WriteLine(ValidateString(""))
+        'Console.WriteLine(ValidateString(""))
     End Sub
 
 

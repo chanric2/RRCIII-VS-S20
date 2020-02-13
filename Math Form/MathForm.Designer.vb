@@ -31,30 +31,30 @@ Partial Class MathForm
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(40, 43)
+        Me.TextBox1.Location = New System.Drawing.Point(8, 21)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox1.Size = New System.Drawing.Size(218, 20)
         Me.TextBox1.TabIndex = 0
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(40, 69)
+        Me.TextBox2.Location = New System.Drawing.Point(8, 60)
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox2.Size = New System.Drawing.Size(218, 20)
         Me.TextBox2.TabIndex = 1
         '
         'TextBox3
         '
-        Me.TextBox3.Location = New System.Drawing.Point(40, 95)
+        Me.TextBox3.Location = New System.Drawing.Point(8, 101)
         Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox3.Size = New System.Drawing.Size(218, 20)
         Me.TextBox3.TabIndex = 2
         '
         'ExitButton
         '
-        Me.ExitButton.Location = New System.Drawing.Point(100, 131)
+        Me.ExitButton.Location = New System.Drawing.Point(124, 131)
         Me.ExitButton.Name = "ExitButton"
-        Me.ExitButton.Size = New System.Drawing.Size(86, 47)
+        Me.ExitButton.Size = New System.Drawing.Size(102, 47)
         Me.ExitButton.TabIndex = 4
         Me.ExitButton.Text = "Exit"
         Me.ExitButton.UseVisualStyleBackColor = True
@@ -63,7 +63,7 @@ Partial Class MathForm
         '
         Me.ValidateButton.Location = New System.Drawing.Point(8, 131)
         Me.ValidateButton.Name = "ValidateButton"
-        Me.ValidateButton.Size = New System.Drawing.Size(86, 47)
+        Me.ValidateButton.Size = New System.Drawing.Size(110, 47)
         Me.ValidateButton.TabIndex = 3
         Me.ValidateButton.Text = "Validate"
         Me.ValidateButton.UseVisualStyleBackColor = True
