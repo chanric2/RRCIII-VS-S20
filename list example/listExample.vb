@@ -22,7 +22,6 @@ Module listExample
 
         Console.WriteLine("Search a name...")
         searchString = Console.ReadLine()
-        'Console.WriteLine(names.Contains(searchString)) 'Have to be full exact string
         If names.Contains(searchString) = True Then
             Console.WriteLine("Yes, " & searchString & " is at index " & names.IndexOf(searchString))
         Else
