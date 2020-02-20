@@ -27,6 +27,8 @@ Partial Class MathForm
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.ExitButton = New System.Windows.Forms.Button()
         Me.ValidateButton = New System.Windows.Forms.Button()
+        Me.TotalButton = New System.Windows.Forms.Button()
+        Me.ClearButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'TextBox1
@@ -61,18 +63,38 @@ Partial Class MathForm
         '
         'ValidateButton
         '
-        Me.ValidateButton.Location = New System.Drawing.Point(8, 131)
+        Me.ValidateButton.Location = New System.Drawing.Point(12, 131)
         Me.ValidateButton.Name = "ValidateButton"
         Me.ValidateButton.Size = New System.Drawing.Size(110, 47)
         Me.ValidateButton.TabIndex = 3
         Me.ValidateButton.Text = "Validate"
         Me.ValidateButton.UseVisualStyleBackColor = True
         '
+        'TotalButton
+        '
+        Me.TotalButton.Location = New System.Drawing.Point(12, 184)
+        Me.TotalButton.Name = "TotalButton"
+        Me.TotalButton.Size = New System.Drawing.Size(110, 47)
+        Me.TotalButton.TabIndex = 5
+        Me.TotalButton.Text = "total"
+        Me.TotalButton.UseVisualStyleBackColor = True
+        '
+        'ClearButton
+        '
+        Me.ClearButton.Location = New System.Drawing.Point(124, 184)
+        Me.ClearButton.Name = "ClearButton"
+        Me.ClearButton.Size = New System.Drawing.Size(110, 47)
+        Me.ClearButton.TabIndex = 6
+        Me.ClearButton.Text = "clear"
+        Me.ClearButton.UseVisualStyleBackColor = True
+        '
         'MathForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(238, 213)
+        Me.ClientSize = New System.Drawing.Size(242, 248)
+        Me.Controls.Add(Me.ClearButton)
+        Me.Controls.Add(Me.TotalButton)
         Me.Controls.Add(Me.ValidateButton)
         Me.Controls.Add(Me.ExitButton)
         Me.Controls.Add(Me.TextBox3)
@@ -90,4 +112,6 @@ Partial Class MathForm
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents ExitButton As Button
     Friend WithEvents ValidateButton As Button
+    Friend WithEvents TotalButton As Button
+    Friend WithEvents ClearButton As Button
 End Class
