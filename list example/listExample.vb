@@ -1,4 +1,4 @@
-﻿Module Module1
+﻿Module listExample
 
     Sub Main()
         Dim names As New List(Of String)
