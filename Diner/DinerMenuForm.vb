@@ -23,7 +23,7 @@ Public Class DinerMenuForm
     Private Sub FishButton_Click(sender As Object, e As EventArgs) Handles FishButton.Click
         'type fishmessage
         Dim fishMessage As String
-        fishMessage &= "Tau'ri fish" & vbNewLine & "Fresh Wyoming trout, caught by Jack O'Neill. "
+        fishMessage &= "Tau'ri fish~" & vbNewLine & "Fresh Wyoming trout, caught by Jack O'Neill. "
         DisplaySpecialLabel.Text = fishMessage
     End Sub
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
