@@ -12,12 +12,21 @@ Module listExample
 
     Sub Main()
         Dim names As New List(Of String)
+        Dim newName As String
         Dim searchString As String
         names.Add("Richard")
         names.Add("Pan0ph0bia")
-        names.Add("Jemika")
+        names.Add("Tessa")
+
         Console.WriteLine("Please enter a new name!")
-        names.Add(Console.ReadLine())
+        newName = Console.ReadLine()
+        names.Add(newName)
+        If Console.ReadLine() = 'name from list'
+            Then
+            Console.WriteLine(newName & ", is already on file")
+        Else
+
+        End If
         Console.Clear()
 
         Console.WriteLine("Search a name...")

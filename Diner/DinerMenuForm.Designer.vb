@@ -28,6 +28,7 @@ Partial Class DinerMenuForm
         Me.FishButton = New System.Windows.Forms.Button()
         Me.ExitButton = New System.Windows.Forms.Button()
         Me.DisplaySpecialLabel = New System.Windows.Forms.Label()
+        Me.OrderButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'DinerNameLabel
@@ -45,8 +46,8 @@ Partial Class DinerMenuForm
         Me.SoupButton.Location = New System.Drawing.Point(12, 339)
         Me.SoupButton.Name = "SoupButton"
         Me.SoupButton.Size = New System.Drawing.Size(184, 99)
-        Me.SoupButton.TabIndex = 1
-        Me.SoupButton.Text = "Soup"
+        Me.SoupButton.TabIndex = 0
+        Me.SoupButton.Text = "&Soup"
         Me.SoupButton.UseVisualStyleBackColor = True
         '
         'SaladButton
@@ -54,8 +55,8 @@ Partial Class DinerMenuForm
         Me.SaladButton.Location = New System.Drawing.Point(202, 339)
         Me.SaladButton.Name = "SaladButton"
         Me.SaladButton.Size = New System.Drawing.Size(184, 99)
-        Me.SaladButton.TabIndex = 2
-        Me.SaladButton.Text = "Salad"
+        Me.SaladButton.TabIndex = 1
+        Me.SaladButton.Text = "S&alad"
         Me.SaladButton.UseVisualStyleBackColor = True
         '
         'FishButton
@@ -63,31 +64,47 @@ Partial Class DinerMenuForm
         Me.FishButton.Location = New System.Drawing.Point(392, 339)
         Me.FishButton.Name = "FishButton"
         Me.FishButton.Size = New System.Drawing.Size(184, 99)
-        Me.FishButton.TabIndex = 3
-        Me.FishButton.Text = "Fish"
+        Me.FishButton.TabIndex = 2
+        Me.FishButton.Text = "&Fish"
         Me.FishButton.UseVisualStyleBackColor = True
         '
         'ExitButton
         '
-        Me.ExitButton.Location = New System.Drawing.Point(604, 339)
+        Me.ExitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.ExitButton.Location = New System.Drawing.Point(696, 339)
         Me.ExitButton.Name = "ExitButton"
-        Me.ExitButton.Size = New System.Drawing.Size(184, 99)
+        Me.ExitButton.Size = New System.Drawing.Size(92, 99)
         Me.ExitButton.TabIndex = 4
-        Me.ExitButton.Text = "Exit"
+        Me.ExitButton.Text = "E&xit"
         Me.ExitButton.UseVisualStyleBackColor = True
         '
         'DisplaySpecialLabel
         '
+        Me.DisplaySpecialLabel.Font = New System.Drawing.Font("Poor Richard", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DisplaySpecialLabel.Location = New System.Drawing.Point(12, 54)
         Me.DisplaySpecialLabel.Name = "DisplaySpecialLabel"
         Me.DisplaySpecialLabel.Size = New System.Drawing.Size(776, 282)
         Me.DisplaySpecialLabel.TabIndex = 5
+        Me.DisplaySpecialLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'OrderButton
+        '
+        Me.OrderButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.OrderButton.Location = New System.Drawing.Point(598, 339)
+        Me.OrderButton.Name = "OrderButton"
+        Me.OrderButton.Size = New System.Drawing.Size(92, 99)
+        Me.OrderButton.TabIndex = 3
+        Me.OrderButton.Text = "&Order"
+        Me.OrderButton.UseVisualStyleBackColor = True
         '
         'DinerMenuForm
         '
+        Me.AcceptButton = Me.OrderButton
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.CancelButton = Me.ExitButton
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.OrderButton)
         Me.Controls.Add(Me.DisplaySpecialLabel)
         Me.Controls.Add(Me.ExitButton)
         Me.Controls.Add(Me.FishButton)
@@ -107,4 +124,5 @@ Partial Class DinerMenuForm
     Friend WithEvents FishButton As Button
     Friend WithEvents ExitButton As Button
     Friend WithEvents DisplaySpecialLabel As Label
+    Friend WithEvents OrderButton As Button
 End Class
