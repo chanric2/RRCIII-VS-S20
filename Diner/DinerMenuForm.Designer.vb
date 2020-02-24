@@ -37,9 +37,9 @@ Partial Class DinerMenuForm
         Me.DinerNameLabel.Font = New System.Drawing.Font("Times New Roman", 30.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DinerNameLabel.Location = New System.Drawing.Point(279, 9)
         Me.DinerNameLabel.Name = "DinerNameLabel"
-        Me.DinerNameLabel.Size = New System.Drawing.Size(227, 45)
+        Me.DinerNameLabel.Size = New System.Drawing.Size(345, 45)
         Me.DinerNameLabel.TabIndex = 0
-        Me.DinerNameLabel.Text = "Diner Name"
+        Me.DinerNameLabel.Text = "Stargate Mess Hall"
         '
         'SoupButton
         '
