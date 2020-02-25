@@ -74,18 +74,18 @@ Partial Class ListForm
         '
         'AddButton
         '
-        Me.AddButton.Location = New System.Drawing.Point(661, 76)
+        Me.AddButton.Location = New System.Drawing.Point(608, 69)
         Me.AddButton.Name = "AddButton"
-        Me.AddButton.Size = New System.Drawing.Size(75, 23)
+        Me.AddButton.Size = New System.Drawing.Size(128, 40)
         Me.AddButton.TabIndex = 5
         Me.AddButton.Text = "Add"
         Me.AddButton.UseVisualStyleBackColor = True
         '
         'ClearButton
         '
-        Me.ClearButton.Location = New System.Drawing.Point(661, 115)
+        Me.ClearButton.Location = New System.Drawing.Point(608, 115)
         Me.ClearButton.Name = "ClearButton"
-        Me.ClearButton.Size = New System.Drawing.Size(75, 23)
+        Me.ClearButton.Size = New System.Drawing.Size(128, 40)
         Me.ClearButton.TabIndex = 6
         Me.ClearButton.Text = "clear"
         Me.ClearButton.UseVisualStyleBackColor = True
@@ -93,9 +93,9 @@ Partial Class ListForm
         'ExitButton
         '
         Me.ExitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.ExitButton.Location = New System.Drawing.Point(661, 161)
+        Me.ExitButton.Location = New System.Drawing.Point(608, 161)
         Me.ExitButton.Name = "ExitButton"
-        Me.ExitButton.Size = New System.Drawing.Size(75, 23)
+        Me.ExitButton.Size = New System.Drawing.Size(128, 40)
         Me.ExitButton.TabIndex = 7
         Me.ExitButton.Text = "Exit"
         Me.ExitButton.UseVisualStyleBackColor = True
@@ -105,7 +105,7 @@ Partial Class ListForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.ExitButton
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(777, 450)
         Me.Controls.Add(Me.ExitButton)
         Me.Controls.Add(Me.ClearButton)
         Me.Controls.Add(Me.AddButton)
