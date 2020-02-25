@@ -1,7 +1,10 @@
-﻿Public Class ListForm
+﻿Option Strict On
+Option Compare Text
+Option Explicit On
+Public Class ListForm
     Private Sub ListBox1_Load(sender As Object, e As EventArgs) Handles Me.Load
-        FirstTextBox.Text = "First Name"
-        LastTextBox.Text = "Last Name"
+        FirstTextBox.Text = "Richard"
+        LastTextBox.Text = "Chandler"
     End Sub
 
     Private Sub AddButton_Click(sender As Object, e As EventArgs) Handles AddButton.Click
@@ -17,7 +20,15 @@
     End Sub
 
     Private Sub NameListBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles NameListBox.SelectedIndexChanged
+        Dim index As Integer
+
         Me.Text = NameListBox.SelectedIndex.ToString
         'TODO add selected to first name and last name text box
+        ''FirstTextBox.Text = NameListBox.SelectedItem.ToString
+        index = InStr(NameListBox.SelectedItem.ToString, " ")
+        FirstTextBox.Text = Strings.Left(NameListBox.SelectedItem.ToString, index)
+        'TODO Right() needs fix
+        LastTextBox.Text = Strings.Right(NameListBox.SelectedItem.ToString, index)
+
     End Sub
 End Class
