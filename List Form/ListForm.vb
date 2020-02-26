@@ -9,8 +9,8 @@ Option Compare Text
 Option Explicit On
 Public Class ListForm
     Private Sub ListBox1_Load(sender As Object, e As EventArgs) Handles Me.Load
-        FirstTextBox.Text = "Richard"
-        LastTextBox.Text = "Chandler"
+        FirstTextBox.Text = ""
+        LastTextBox.Text = ""
     End Sub
 
     Private Sub AddButton_Click(sender As Object, e As EventArgs) Handles AddButton.Click
