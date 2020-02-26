@@ -11,6 +11,7 @@ Public Class ListForm
     Private Sub ListBox1_Load(sender As Object, e As EventArgs) Handles Me.Load
         FirstTextBox.Text = ""
         LastTextBox.Text = ""
+        MathTest()
     End Sub
 
     Private Sub AddButton_Click(sender As Object, e As EventArgs) Handles AddButton.Click
@@ -34,4 +35,12 @@ Public Class ListForm
         LastTextBox.Text = Trim(Strings.Mid(NameListBox.SelectedItem.ToString, index, Len((NameListBox.SelectedItem.ToString))))
 
     End Sub
+
+    Private Sub MathTest()
+        Dim number As Double
+
+        number = 10 * Math.Sin(Math.PI)
+        Console.WriteLine(Math.PI)
+    End Sub
+
 End Class
