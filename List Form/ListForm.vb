@@ -1,4 +1,10 @@
-﻿Option Strict On
+﻿'Richard Chandler III
+'RCET0265
+'Spring 2020
+'List Form
+'https://github.com/rosstimo/RRCIII-VS-S20
+
+Option Strict On
 Option Compare Text
 Option Explicit On
 Public Class ListForm
@@ -23,12 +29,9 @@ Public Class ListForm
         Dim index As Integer
 
         Me.Text = NameListBox.SelectedIndex.ToString
-        'TODO add selected to first name and last name text box
-        ''FirstTextBox.Text = NameListBox.SelectedItem.ToString
         index = InStr(NameListBox.SelectedItem.ToString, " ")
-        FirstTextBox.Text = Strings.Left(NameListBox.SelectedItem.ToString, index)
-        'TODO Right() needs fix
-        LastTextBox.Text = Strings.Right(NameListBox.SelectedItem.ToString, index)
+        FirstTextBox.Text = Trim(Strings.Left(NameListBox.SelectedItem.ToString, index))
+        LastTextBox.Text = Trim(Strings.Mid(NameListBox.SelectedItem.ToString, index, Len((NameListBox.SelectedItem.ToString))))
 
     End Sub
 End Class
