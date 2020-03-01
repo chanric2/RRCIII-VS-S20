@@ -6,17 +6,22 @@
 Module AccumulateMessageFunction
 
     Sub Main()
-        'MsgBox(UserMessages(True, "hard coded message", False))
-        UserMessages(True, "hard coded message", False)
-        UserMessages(True, "hard coded message1", False)
+        UserMessages(False, "hard coded message", False)
+        UserMessages(True, "hard coded message1", True)
         UserMessages(True, "hard coded message2", False)
         MsgBox(UserMessages(True, "", False))
     End Sub
 
     Function UserMessages(addMessage As Boolean, message As String, clearMessage As Boolean) As String
         Static formattedMessages As String = ""
+        If clearMessage = False Then
 
-        formattedMessages &= message & vbNewLine
+            If addMessage = True Then
+                formattedMessages &= message & vbNewLine
+            End If
+        Else
+            formattedMessages &= ""
+        End If
 
         Return formattedMessages
     End Function
