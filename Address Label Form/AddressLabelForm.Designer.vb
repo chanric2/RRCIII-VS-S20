@@ -46,7 +46,7 @@ Partial Class AddressLabelForm
         '
         'DisplayButton
         '
-        Me.DisplayButton.Location = New System.Drawing.Point(162, 388)
+        Me.DisplayButton.Location = New System.Drawing.Point(162, 193)
         Me.DisplayButton.Name = "DisplayButton"
         Me.DisplayButton.Size = New System.Drawing.Size(50, 50)
         Me.DisplayButton.TabIndex = 6
@@ -55,7 +55,7 @@ Partial Class AddressLabelForm
         '
         'ClearButton
         '
-        Me.ClearButton.Location = New System.Drawing.Point(218, 388)
+        Me.ClearButton.Location = New System.Drawing.Point(218, 193)
         Me.ClearButton.Name = "ClearButton"
         Me.ClearButton.Size = New System.Drawing.Size(50, 50)
         Me.ClearButton.TabIndex = 7
@@ -65,7 +65,7 @@ Partial Class AddressLabelForm
         'ExitButton
         '
         Me.ExitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.ExitButton.Location = New System.Drawing.Point(274, 388)
+        Me.ExitButton.Location = New System.Drawing.Point(274, 193)
         Me.ExitButton.Name = "ExitButton"
         Me.ExitButton.Size = New System.Drawing.Size(50, 50)
         Me.ExitButton.TabIndex = 8
@@ -130,7 +130,7 @@ Partial Class AddressLabelForm
         '
         Me.DisplayLabel.Location = New System.Drawing.Point(6, 16)
         Me.DisplayLabel.Name = "DisplayLabel"
-        Me.DisplayLabel.Size = New System.Drawing.Size(164, 147)
+        Me.DisplayLabel.Size = New System.Drawing.Size(120, 147)
         Me.DisplayLabel.TabIndex = 9
         '
         'FirstNameTextBox
@@ -191,7 +191,7 @@ Partial Class AddressLabelForm
         Me.InputGroupBox.Controls.Add(Me.FirstNameTextBox)
         Me.InputGroupBox.Location = New System.Drawing.Point(12, 12)
         Me.InputGroupBox.Name = "InputGroupBox"
-        Me.InputGroupBox.Size = New System.Drawing.Size(256, 370)
+        Me.InputGroupBox.Size = New System.Drawing.Size(256, 175)
         Me.InputGroupBox.TabIndex = 16
         Me.InputGroupBox.TabStop = False
         Me.InputGroupBox.Text = "Mailing Address"
@@ -201,7 +201,7 @@ Partial Class AddressLabelForm
         Me.OutputGroupBox.Controls.Add(Me.DisplayLabel)
         Me.OutputGroupBox.Location = New System.Drawing.Point(274, 12)
         Me.OutputGroupBox.Name = "OutputGroupBox"
-        Me.OutputGroupBox.Size = New System.Drawing.Size(234, 370)
+        Me.OutputGroupBox.Size = New System.Drawing.Size(132, 175)
         Me.OutputGroupBox.TabIndex = 17
         Me.OutputGroupBox.TabStop = False
         Me.OutputGroupBox.Text = "Addess Label"
@@ -212,7 +212,7 @@ Partial Class AddressLabelForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.ExitButton
-        Me.ClientSize = New System.Drawing.Size(519, 450)
+        Me.ClientSize = New System.Drawing.Size(418, 257)
         Me.Controls.Add(Me.OutputGroupBox)
         Me.Controls.Add(Me.InputGroupBox)
         Me.Controls.Add(Me.ExitButton)
