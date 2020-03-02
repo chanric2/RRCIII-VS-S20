@@ -22,6 +22,7 @@ Partial Class AddressLabelForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.DisplayButton = New System.Windows.Forms.Button()
         Me.ClearButton = New System.Windows.Forms.Button()
         Me.ExitButton = New System.Windows.Forms.Button()
@@ -40,6 +41,7 @@ Partial Class AddressLabelForm
         Me.ZipTextBox = New System.Windows.Forms.TextBox()
         Me.InputGroupBox = New System.Windows.Forms.GroupBox()
         Me.OutputGroupBox = New System.Windows.Forms.GroupBox()
+        Me.HelpToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.InputGroupBox.SuspendLayout()
         Me.OutputGroupBox.SuspendLayout()
         Me.SuspendLayout()
@@ -51,6 +53,7 @@ Partial Class AddressLabelForm
         Me.DisplayButton.Size = New System.Drawing.Size(50, 50)
         Me.DisplayButton.TabIndex = 6
         Me.DisplayButton.Text = "&Display"
+        Me.HelpToolTip.SetToolTip(Me.DisplayButton, "Click To Display Address Format")
         Me.DisplayButton.UseVisualStyleBackColor = True
         '
         'ClearButton
@@ -60,6 +63,7 @@ Partial Class AddressLabelForm
         Me.ClearButton.Size = New System.Drawing.Size(50, 50)
         Me.ClearButton.TabIndex = 7
         Me.ClearButton.Text = "&Clear"
+        Me.HelpToolTip.SetToolTip(Me.ClearButton, "Click To Clear The Address Format")
         Me.ClearButton.UseVisualStyleBackColor = True
         '
         'ExitButton
@@ -70,6 +74,7 @@ Partial Class AddressLabelForm
         Me.ExitButton.Size = New System.Drawing.Size(50, 50)
         Me.ExitButton.TabIndex = 8
         Me.ExitButton.Text = "E&xit"
+        Me.HelpToolTip.SetToolTip(Me.ExitButton, "Click To Close")
         Me.ExitButton.UseVisualStyleBackColor = True
         '
         'FirstNameLabel
@@ -132,6 +137,7 @@ Partial Class AddressLabelForm
         Me.DisplayLabel.Name = "DisplayLabel"
         Me.DisplayLabel.Size = New System.Drawing.Size(120, 147)
         Me.DisplayLabel.TabIndex = 9
+        Me.HelpToolTip.SetToolTip(Me.DisplayLabel, "Displays Your Typed Address")
         '
         'FirstNameTextBox
         '
@@ -139,6 +145,7 @@ Partial Class AddressLabelForm
         Me.FirstNameTextBox.Name = "FirstNameTextBox"
         Me.FirstNameTextBox.Size = New System.Drawing.Size(100, 20)
         Me.FirstNameTextBox.TabIndex = 0
+        Me.HelpToolTip.SetToolTip(Me.FirstNameTextBox, "Type First Name")
         '
         'LastNameTextBox
         '
@@ -146,6 +153,7 @@ Partial Class AddressLabelForm
         Me.LastNameTextBox.Name = "LastNameTextBox"
         Me.LastNameTextBox.Size = New System.Drawing.Size(100, 20)
         Me.LastNameTextBox.TabIndex = 1
+        Me.HelpToolTip.SetToolTip(Me.LastNameTextBox, "Type Last Name")
         '
         'StreetAddressTextBox
         '
@@ -153,6 +161,7 @@ Partial Class AddressLabelForm
         Me.StreetAddressTextBox.Name = "StreetAddressTextBox"
         Me.StreetAddressTextBox.Size = New System.Drawing.Size(100, 20)
         Me.StreetAddressTextBox.TabIndex = 2
+        Me.HelpToolTip.SetToolTip(Me.StreetAddressTextBox, "Type Street Address")
         '
         'CityTextBox
         '
@@ -160,6 +169,7 @@ Partial Class AddressLabelForm
         Me.CityTextBox.Name = "CityTextBox"
         Me.CityTextBox.Size = New System.Drawing.Size(100, 20)
         Me.CityTextBox.TabIndex = 3
+        Me.HelpToolTip.SetToolTip(Me.CityTextBox, "Type City")
         '
         'StateTextBox
         '
@@ -167,6 +177,7 @@ Partial Class AddressLabelForm
         Me.StateTextBox.Name = "StateTextBox"
         Me.StateTextBox.Size = New System.Drawing.Size(100, 20)
         Me.StateTextBox.TabIndex = 4
+        Me.HelpToolTip.SetToolTip(Me.StateTextBox, "Type State")
         '
         'ZipTextBox
         '
@@ -174,6 +185,7 @@ Partial Class AddressLabelForm
         Me.ZipTextBox.Name = "ZipTextBox"
         Me.ZipTextBox.Size = New System.Drawing.Size(100, 20)
         Me.ZipTextBox.TabIndex = 5
+        Me.HelpToolTip.SetToolTip(Me.ZipTextBox, "Type Zip Code")
         '
         'InputGroupBox
         '
@@ -191,7 +203,7 @@ Partial Class AddressLabelForm
         Me.InputGroupBox.Controls.Add(Me.FirstNameTextBox)
         Me.InputGroupBox.Location = New System.Drawing.Point(12, 12)
         Me.InputGroupBox.Name = "InputGroupBox"
-        Me.InputGroupBox.Size = New System.Drawing.Size(256, 175)
+        Me.InputGroupBox.Size = New System.Drawing.Size(220, 175)
         Me.InputGroupBox.TabIndex = 16
         Me.InputGroupBox.TabStop = False
         Me.InputGroupBox.Text = "Mailing Address"
@@ -199,12 +211,20 @@ Partial Class AddressLabelForm
         'OutputGroupBox
         '
         Me.OutputGroupBox.Controls.Add(Me.DisplayLabel)
-        Me.OutputGroupBox.Location = New System.Drawing.Point(274, 12)
+        Me.OutputGroupBox.Location = New System.Drawing.Point(238, 12)
         Me.OutputGroupBox.Name = "OutputGroupBox"
-        Me.OutputGroupBox.Size = New System.Drawing.Size(132, 175)
+        Me.OutputGroupBox.Size = New System.Drawing.Size(168, 175)
         Me.OutputGroupBox.TabIndex = 17
         Me.OutputGroupBox.TabStop = False
         Me.OutputGroupBox.Text = "Addess Label"
+        '
+        'HelpToolTip
+        '
+        Me.HelpToolTip.AutomaticDelay = 25
+        Me.HelpToolTip.AutoPopDelay = 2500
+        Me.HelpToolTip.BackColor = System.Drawing.Color.Purple
+        Me.HelpToolTip.InitialDelay = 25
+        Me.HelpToolTip.ReshowDelay = 5
         '
         'AddressLabelForm
         '
@@ -221,6 +241,7 @@ Partial Class AddressLabelForm
         Me.Name = "AddressLabelForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Address Label Viewer"
+        Me.HelpToolTip.SetToolTip(Me, "Label Viewer")
         Me.InputGroupBox.ResumeLayout(False)
         Me.InputGroupBox.PerformLayout()
         Me.OutputGroupBox.ResumeLayout(False)
@@ -246,4 +267,5 @@ Partial Class AddressLabelForm
     Friend WithEvents ZipTextBox As TextBox
     Friend WithEvents InputGroupBox As GroupBox
     Friend WithEvents OutputGroupBox As GroupBox
+    Friend WithEvents HelpToolTip As ToolTip
 End Class

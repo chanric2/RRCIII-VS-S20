@@ -6,8 +6,8 @@
 Module AccumulateMessageFunction
 
     Sub Main()
-        UserMessages(False, "hard coded message", False)
-        UserMessages(True, "hard coded message1", True)
+        UserMessages(True, "Please Enter your ", False)
+        UserMessages(True, "hard coded message1", False)
         UserMessages(True, "hard coded message2", False)
         MsgBox(UserMessages(True, "", False))
     End Sub
