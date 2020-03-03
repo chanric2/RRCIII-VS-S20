@@ -17,7 +17,24 @@ Module Array
         myArray(0) = 5
         'save Data(preserve) in array And change size to 0-15 (redim)
         ReDim Preserve myArray(15)
+        Array()
+        'Console.ReadLine()
+    End Sub
+    Sub Array()
+        'no element definition
+        '' Dim infoArray() As String
+        '' infoArray = {"Hello"}
+        'split elements by delimiter ,
+        Dim infoArray() As String
+        infoArray = Split("Hello,Goodbye,  Pizza,Hungry,ice cream", ",")
+
+        For Each thing In infoArray
+            Console.WriteLine(thing)
+            infoArray.Contains(thing)
+        Next
+        'For i = LBound(infoArray) To UBound(infoArray)
+        '    Console.WriteLine("at " & Str(i) & " value is: " & infoArray(i))
+        'Next
         Console.ReadLine()
     End Sub
-
 End Module
