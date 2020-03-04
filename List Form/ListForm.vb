@@ -11,18 +11,18 @@ Public Class ListForm
     Private Sub ListBox1_Load(sender As Object, e As EventArgs) Handles Me.Load
         FirstTextBox.Text = ""
         LastTextBox.Text = ""
-        MathTest()
+        'MathTest()
     End Sub
 
-    Private Sub AddButton_Click(sender As Object, e As EventArgs) Handles AddButton.Click
+    Private Sub AddButton_Click(sender As Object, e As EventArgs) Handles AddButton.Click, AddToolStripMenuItem.Click
         NameListBox.Items.Add(FirstTextBox.Text & " " & LastTextBox.Text)
     End Sub
 
-    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
+    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click, ClearToolStripMenuItem.Click
         NameListBox.Items.Clear()
     End Sub
 
-    Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
+    Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click, ExitToolStripMenuItem.Click
         Me.Close()
     End Sub
 
@@ -36,11 +36,11 @@ Public Class ListForm
 
     End Sub
 
-    Private Sub MathTest()
-        Dim number As Double
+    'Private Sub MathTest()
+    '    Dim number As Double
 
-        number = 10 * Math.Sin(Math.PI)
-        Console.WriteLine(Math.PI)
-    End Sub
+    '    number = 10 * Math.Sin(Math.PI)
+    '    Console.WriteLine(Math.PI)
+    'End Sub
 
 End Class
