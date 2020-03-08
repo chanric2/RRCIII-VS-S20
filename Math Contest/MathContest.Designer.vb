@@ -24,12 +24,12 @@ Partial Class MathContest
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GradeNumericUpDown = New System.Windows.Forms.NumericUpDown()
+        Me.AgeNumericUpDown = New System.Windows.Forms.NumericUpDown()
         Me.GradeLabel = New System.Windows.Forms.Label()
         Me.AgeLabel = New System.Windows.Forms.Label()
         Me.NameLabel = New System.Windows.Forms.Label()
         Me.NameTextBox = New System.Windows.Forms.TextBox()
-        Me.AgeTextBox = New System.Windows.Forms.TextBox()
-        Me.GradeTextBox = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.StudentAnswerLabel = New System.Windows.Forms.Label()
         Me.SecondNumberLabel = New System.Windows.Forms.Label()
@@ -49,6 +49,8 @@ Partial Class MathContest
         Me.SubmitButton = New System.Windows.Forms.Button()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.GroupBox1.SuspendLayout()
+        CType(Me.GradeNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AgeNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
@@ -56,18 +58,38 @@ Partial Class MathContest
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.GradeNumericUpDown)
+        Me.GroupBox1.Controls.Add(Me.AgeNumericUpDown)
         Me.GroupBox1.Controls.Add(Me.GradeLabel)
         Me.GroupBox1.Controls.Add(Me.AgeLabel)
         Me.GroupBox1.Controls.Add(Me.NameLabel)
         Me.GroupBox1.Controls.Add(Me.NameTextBox)
-        Me.GroupBox1.Controls.Add(Me.AgeTextBox)
-        Me.GroupBox1.Controls.Add(Me.GradeTextBox)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(296, 88)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Student Information"
+        '
+        'GradeNumericUpDown
+        '
+        Me.GradeNumericUpDown.Location = New System.Drawing.Point(245, 49)
+        Me.GradeNumericUpDown.Maximum = New Decimal(New Integer() {4, 0, 0, 0})
+        Me.GradeNumericUpDown.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.GradeNumericUpDown.Name = "GradeNumericUpDown"
+        Me.GradeNumericUpDown.Size = New System.Drawing.Size(35, 20)
+        Me.GradeNumericUpDown.TabIndex = 7
+        Me.GradeNumericUpDown.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
+        'AgeNumericUpDown
+        '
+        Me.AgeNumericUpDown.Location = New System.Drawing.Point(193, 48)
+        Me.AgeNumericUpDown.Maximum = New Decimal(New Integer() {11, 0, 0, 0})
+        Me.AgeNumericUpDown.Minimum = New Decimal(New Integer() {7, 0, 0, 0})
+        Me.AgeNumericUpDown.Name = "AgeNumericUpDown"
+        Me.AgeNumericUpDown.Size = New System.Drawing.Size(35, 20)
+        Me.AgeNumericUpDown.TabIndex = 6
+        Me.AgeNumericUpDown.Value = New Decimal(New Integer() {7, 0, 0, 0})
         '
         'GradeLabel
         '
@@ -102,22 +124,6 @@ Partial Class MathContest
         Me.NameTextBox.Name = "NameTextBox"
         Me.NameTextBox.Size = New System.Drawing.Size(163, 20)
         Me.NameTextBox.TabIndex = 0
-        '
-        'AgeTextBox
-        '
-        Me.AgeTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.AgeTextBox.Location = New System.Drawing.Point(193, 48)
-        Me.AgeTextBox.Name = "AgeTextBox"
-        Me.AgeTextBox.Size = New System.Drawing.Size(32, 20)
-        Me.AgeTextBox.TabIndex = 1
-        '
-        'GradeTextBox
-        '
-        Me.GradeTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GradeTextBox.Location = New System.Drawing.Point(245, 48)
-        Me.GradeTextBox.Name = "GradeTextBox"
-        Me.GradeTextBox.Size = New System.Drawing.Size(32, 20)
-        Me.GradeTextBox.TabIndex = 2
         '
         'GroupBox2
         '
@@ -313,6 +319,8 @@ Partial Class MathContest
         Me.Text = "Math Contest"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.GradeNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AgeNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
@@ -324,8 +332,6 @@ Partial Class MathContest
 
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents NameTextBox As TextBox
-    Friend WithEvents AgeTextBox As TextBox
-    Friend WithEvents GradeTextBox As TextBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents StudentTextBox As TextBox
     Friend WithEvents SecondNumberTextBox As TextBox
@@ -347,4 +353,6 @@ Partial Class MathContest
     Friend WithEvents SummaryButton As Button
     Friend WithEvents ClearButton As Button
     Friend WithEvents SubmitButton As Button
+    Friend WithEvents GradeNumericUpDown As NumericUpDown
+    Friend WithEvents AgeNumericUpDown As NumericUpDown
 End Class
