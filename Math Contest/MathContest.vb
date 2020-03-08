@@ -39,15 +39,26 @@ Public Class MathContest
     End Sub
     Private Sub StudentTextBox_TextChanged(sender As Object, e As EventArgs) Handles StudentTextBox.TextChanged
         Dim answer As Integer
+        'V Has issues with conversions and will check as the user writes, meaning if an answer is more then one value it will activate bad early.
+        'will crash the code due to conversion types try to erase the entered number or decimal
         answer = CInt(StudentTextBox.Text)
-        If answer = 0 Then
-
+        If AddRadioButton.Checked And answer = CInt(FirstNumberTextBox.Text) + CInt(SecondNumberTextBox.Text) Then
+            MsgBox("Added")
+        ElseIf SubRadioButton.Checked And answer = CInt(FirstNumberTextBox.Text) - CInt(SecondNumberTextBox.Text) Then
+            MsgBox("Subtracted")
+        ElseIf MultiRadioButton.Checked And answer = CInt(FirstNumberTextBox.Text) * CInt(SecondNumberTextBox.Text) Then
+            MsgBox("Multiplied")
+        ElseIf DivRadioButton.Checked And answer = CInt(FirstNumberTextBox.Text) / CInt(SecondNumberTextBox.Text) Then
+            MsgBox("Divided")
+        Else
+            MsgBox("Bad")
         End If
     End Sub
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
         NameTextBox.Text = ""
-        FirstNumberTextBox.Text = ""
-        SecondNumberTextBox.Text = ""
+        'FirstNumberTextBox.Text = ""
+        'SecondNumberTextBox.Text = ""
+        'StudentTextBox.Text = CStr(0)
         AddRadioButton.Checked = False
         SubRadioButton.Checked = False
         MultiRadioButton.Checked = False
