@@ -50,9 +50,10 @@ Public Class MathContest
             MsgBox("Multiplied")
         ElseIf DivRadioButton.Checked And answer = CInt(FirstNumberTextBox.Text) / CInt(SecondNumberTextBox.Text) Then
             MsgBox("Divided")
-        Else
-            MsgBox("Bad")
         End If
+    End Sub
+    Private Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
+
     End Sub
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
         NameTextBox.Text = ""
