@@ -1,4 +1,9 @@
-﻿Module Module1
+﻿'Richard Chandler III
+'RCET0265
+'Spring 2020
+'Dice Rolling 1000 Times
+'https://github.com/rosstimo/RRCIII-VS-S20
+Module DiceRoll
 
     Sub Main()
 
