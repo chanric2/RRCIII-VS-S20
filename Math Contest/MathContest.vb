@@ -2,7 +2,7 @@
 'RCET0265
 'Spring 2020
 'Math Contest
-'https://github.com/rosstimo/RRCIII-VS-S20
+'https://github.com/chanric2/RRCIII-VS-S20
 Option Strict On
 Public Class MathContest
     Private Sub MathContest_Load(sender As Object, e As EventArgs) Handles Me.Load

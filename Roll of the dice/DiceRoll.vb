@@ -12,7 +12,7 @@ Module DiceRoll
         Dim sumDice As Integer
         Dim diceArray(12, 1) As Integer
 
-        For roll = 1 To 1000
+        For roll = 1 To 100000
             diceOne = Int((6 * Rnd()) + 1)
             diceTwo = Int((6 * Rnd()) + 1)
             sumDice = diceOne + diceTwo
@@ -55,18 +55,17 @@ Module DiceRoll
         diceArray(12, 0) = "12"
 
         Console.WriteLine("Dice Possibilities " & " Times Dice Rolled")
-        Console.WriteLine(diceArray(2, 0) & "                     " & diceArray(2, 1))
-        Console.WriteLine(diceArray(3, 0) & "                     " & diceArray(3, 1))
-        Console.WriteLine(diceArray(4, 0) & "                     " & diceArray(4, 1))
-        Console.WriteLine(diceArray(5, 0) & "                     " & diceArray(5, 1))
-        Console.WriteLine(diceArray(6, 0) & "                     " & diceArray(6, 1))
-        Console.WriteLine(diceArray(7, 0) & "                     " & diceArray(7, 1))
-        Console.WriteLine(diceArray(8, 0) & "                     " & diceArray(8, 1))
-        Console.WriteLine(diceArray(9, 0) & "                     " & diceArray(9, 1))
-        Console.WriteLine(diceArray(10, 0) & "                    " & diceArray(10, 1))
-        Console.WriteLine(diceArray(11, 0) & "                    " & diceArray(11, 1))
-        Console.WriteLine(diceArray(12, 0) & "                    " & diceArray(12, 1))
+        Console.WriteLine(diceArray(2, 0) & Space(19) & diceArray(2, 1))
+        Console.WriteLine(diceArray(3, 0) & Space(19) & diceArray(3, 1))
+        Console.WriteLine(diceArray(4, 0) & Space(19) & diceArray(4, 1))
+        Console.WriteLine(diceArray(5, 0) & Space(19) & diceArray(5, 1))
+        Console.WriteLine(diceArray(6, 0) & Space(19) & diceArray(6, 1))
+        Console.WriteLine(diceArray(7, 0) & Space(19) & diceArray(7, 1))
+        Console.WriteLine(diceArray(8, 0) & Space(19) & diceArray(8, 1))
+        Console.WriteLine(diceArray(9, 0) & Space(19) & diceArray(9, 1))
+        Console.WriteLine(diceArray(10, 0) & Space(18) & diceArray(10, 1))
+        Console.WriteLine(diceArray(11, 0) & Space(18) & diceArray(11, 1))
+        Console.WriteLine(diceArray(12, 0) & Space(18) & diceArray(12, 1))
         Console.ReadLine()
     End Sub
-
 End Module
