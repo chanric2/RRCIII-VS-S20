@@ -56,7 +56,6 @@ Public Class MathContest
                 ValidateAnswer(correct:=True, incorrect:=False)
             Else
                 'the first incorrect answer msgbox gives 0 then afterwards proceeds to return the correct value
-                ValidateAnswer(correct:=False, incorrect:=True)
                 If AddRadioButton.Checked And CInt(answer) <> CInt(FirstNumberTextBox.Text) + CInt(SecondNumberTextBox.Text) Then
                     rightAnswer = CDbl(FirstNumberTextBox.Text) + CDbl(SecondNumberTextBox.Text)
                 ElseIf SubRadioButton.Checked And CInt(answer) <> CInt(FirstNumberTextBox.Text) - CInt(SecondNumberTextBox.Text) Then
@@ -66,6 +65,7 @@ Public Class MathContest
                 ElseIf DivRadioButton.Checked And CInt(answer) <> CInt(FirstNumberTextBox.Text) / CInt(SecondNumberTextBox.Text) Then
                     rightAnswer = CDbl(FirstNumberTextBox.Text) / CDbl(SecondNumberTextBox.Text)
                 End If
+                ValidateAnswer(correct:=False, incorrect:=True)
             End If
         Catch
             MsgBox("Can Not Submit That Answer. Please Retry.")
@@ -92,7 +92,7 @@ Public Class MathContest
         SecondNumberTextBox.Text = ""
         StudentTextBox.Text = ""
         summaryArray(1) = 0
-        AddRadioButton.Checked = False
+        AddRadioButton.Checked = True
         SubRadioButton.Checked = False
         MultiRadioButton.Checked = False
         DivRadioButton.Checked = False
@@ -110,5 +110,4 @@ Public Class MathContest
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
         Me.Close()
     End Sub
-
 End Class
