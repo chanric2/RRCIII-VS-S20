@@ -47,7 +47,7 @@ Partial Class MathContest
         Me.SummaryButton = New System.Windows.Forms.Button()
         Me.ClearButton = New System.Windows.Forms.Button()
         Me.SubmitButton = New System.Windows.Forms.Button()
-        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.HelpToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.GroupBox1.SuspendLayout()
         CType(Me.GradeNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AgeNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -79,6 +79,7 @@ Partial Class MathContest
         Me.GradeNumericUpDown.Name = "GradeNumericUpDown"
         Me.GradeNumericUpDown.Size = New System.Drawing.Size(35, 20)
         Me.GradeNumericUpDown.TabIndex = 7
+        Me.HelpToolTip.SetToolTip(Me.GradeNumericUpDown, "Select the grade")
         Me.GradeNumericUpDown.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'AgeNumericUpDown
@@ -89,6 +90,7 @@ Partial Class MathContest
         Me.AgeNumericUpDown.Name = "AgeNumericUpDown"
         Me.AgeNumericUpDown.Size = New System.Drawing.Size(35, 20)
         Me.AgeNumericUpDown.TabIndex = 6
+        Me.HelpToolTip.SetToolTip(Me.AgeNumericUpDown, "Select The Age")
         Me.AgeNumericUpDown.Value = New Decimal(New Integer() {7, 0, 0, 0})
         '
         'GradeLabel
@@ -124,6 +126,7 @@ Partial Class MathContest
         Me.NameTextBox.Name = "NameTextBox"
         Me.NameTextBox.Size = New System.Drawing.Size(163, 20)
         Me.NameTextBox.TabIndex = 0
+        Me.HelpToolTip.SetToolTip(Me.NameTextBox, "Please Enter Students Name")
         '
         'GroupBox2
         '
@@ -174,6 +177,7 @@ Partial Class MathContest
         Me.StudentTextBox.Name = "StudentTextBox"
         Me.StudentTextBox.Size = New System.Drawing.Size(163, 20)
         Me.StudentTextBox.TabIndex = 5
+        Me.HelpToolTip.SetToolTip(Me.StudentTextBox, "Student Filled Response")
         '
         'SecondNumberTextBox
         '
@@ -182,6 +186,7 @@ Partial Class MathContest
         Me.SecondNumberTextBox.Name = "SecondNumberTextBox"
         Me.SecondNumberTextBox.Size = New System.Drawing.Size(163, 20)
         Me.SecondNumberTextBox.TabIndex = 4
+        Me.HelpToolTip.SetToolTip(Me.SecondNumberTextBox, "Randomized Number")
         '
         'FirstNumberTextBox
         '
@@ -190,6 +195,7 @@ Partial Class MathContest
         Me.FirstNumberTextBox.Name = "FirstNumberTextBox"
         Me.FirstNumberTextBox.Size = New System.Drawing.Size(163, 20)
         Me.FirstNumberTextBox.TabIndex = 3
+        Me.HelpToolTip.SetToolTip(Me.FirstNumberTextBox, "Randomized Number")
         '
         'GroupBox3
         '
@@ -272,6 +278,7 @@ Partial Class MathContest
         Me.ExitButton.Size = New System.Drawing.Size(191, 48)
         Me.ExitButton.TabIndex = 13
         Me.ExitButton.Text = "E&xit"
+        Me.HelpToolTip.SetToolTip(Me.ExitButton, "Stops Math Contest with ESC, X, or CLICK")
         Me.ExitButton.UseVisualStyleBackColor = True
         '
         'SummaryButton
@@ -282,6 +289,7 @@ Partial Class MathContest
         Me.SummaryButton.Size = New System.Drawing.Size(191, 48)
         Me.SummaryButton.TabIndex = 12
         Me.SummaryButton.Text = "Summ&ary"
+        Me.HelpToolTip.SetToolTip(Me.SummaryButton, "Gives Final Score with A or CLICK")
         Me.SummaryButton.UseVisualStyleBackColor = True
         '
         'ClearButton
@@ -291,6 +299,7 @@ Partial Class MathContest
         Me.ClearButton.Size = New System.Drawing.Size(191, 48)
         Me.ClearButton.TabIndex = 11
         Me.ClearButton.Text = "&Clear"
+        Me.HelpToolTip.SetToolTip(Me.ClearButton, "Clears Student Info with C, or CLICK")
         Me.ClearButton.UseVisualStyleBackColor = True
         '
         'SubmitButton
@@ -301,6 +310,7 @@ Partial Class MathContest
         Me.SubmitButton.Size = New System.Drawing.Size(191, 48)
         Me.SubmitButton.TabIndex = 10
         Me.SubmitButton.Text = "&Submit"
+        Me.HelpToolTip.SetToolTip(Me.SubmitButton, "Checks Answer with ENTER, S, or CLICK")
         Me.SubmitButton.UseVisualStyleBackColor = True
         '
         'MathContest
@@ -342,7 +352,7 @@ Partial Class MathContest
     Friend WithEvents SubRadioButton As RadioButton
     Friend WithEvents AddRadioButton As RadioButton
     Friend WithEvents GroupBox4 As GroupBox
-    Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents HelpToolTip As ToolTip
     Friend WithEvents GradeLabel As Label
     Friend WithEvents AgeLabel As Label
     Friend WithEvents NameLabel As Label
