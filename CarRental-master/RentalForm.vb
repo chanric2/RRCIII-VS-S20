@@ -8,11 +8,55 @@ Option Explicit On
 Option Strict On
 Option Compare Binary
 Public Class RentalForm
+    Private Sub RentalForm_Load(sender As Object, e As EventArgs) Handles Me.Load
+        ResetAll()
+        SummaryButton.Enabled = False
+    End Sub
+
+    Sub ResetAll()
+        'Clear User input
+        NameTextBox.Text = ""
+        AddressTextBox.Text = ""
+        CityTextBox.Text = ""
+        StateTextBox.Text = ""
+        ZipCodeTextBox.Text = ""
+        BeginOdometerTextBox.Text = ""
+        EndOdometerTextBox.Text = ""
+        DaysTextBox.Text = ""
+        MilesradioButton.Select()
+        AAAcheckbox.Checked = False
+        Seniorcheckbox.Checked = False
+        'Clear Output
+
+    End Sub
+
+    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
+        ResetAll()
+    End Sub
+
     Private Sub CalculateButton_Click(sender As Object, e As EventArgs) Handles CalculateButton.Click
         'place sub calls
+        Discount(500)
+        MilageCharge(220)
         verifyOdometer()
         MsgBox(UserMessages(False, "", False))
     End Sub
+
+    Function Discount(totalCharges As Decimal) As Decimal
+        Const AAARATE = 0.05D
+        Const SENIORRATE = 0.03D
+        Dim totalDiscount As Decimal = 0
+
+        If AAAcheckbox.Checked = True Then
+            totalDiscount += totalCharges * AAARATE
+        End If
+
+        If Seniorcheckbox.Checked = True Then
+            totalDiscount += totalCharges * SENIORRATE
+        End If
+
+        Return totalDiscount
+    End Function
 
     Sub verifyOdometer()
         Dim userMessage As String
@@ -24,7 +68,7 @@ Public Class RentalForm
         Catch ex As Exception
             userMessage = "Odometer entry must be numbers"
         End Try
-        userMessages(True, userMessage, False)
+        UserMessages(True, userMessage, False)
     End Sub
 
     Function MilageCharge(ByRef miles As Decimal) As Decimal
@@ -58,4 +102,5 @@ Public Class RentalForm
         Return formattedMessages
 
     End Function
+
 End Class
