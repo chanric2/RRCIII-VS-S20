@@ -15,7 +15,10 @@ Public Class RentalForm
         End If
     End Sub
     Function ValidText() As Boolean
-        'check empty text and if values are in tolerance.
+        'Start by creating new validation on calulate
+        FailMessage("", False, True)
+        'Check empty text and if values are in tolerance.
+        'True if all text fields are filled, false a text field is invalid.
         Dim valid As Boolean
         Try
             If NameTextBox.Text <> "" And AddressTextBox.Text <> "" And
@@ -23,69 +26,81 @@ Public Class RentalForm
                 ZipCodeTextBox.Text <> "" And BeginOdometerTextBox.Text <> "" And
                 EndOdometerTextBox.Text <> "" And DaysTextBox.Text <> "" And
                 CInt(BeginOdometerTextBox.Text) < CInt(EndOdometerTextBox.Text) And
-                (CInt(DaysTextBox.Text) > 0 Or CInt(DaysTextBox.Text) < 45) Then
-                'true "if all text fields are filled"
+                (CInt(DaysTextBox.Text) > 0 And CInt(DaysTextBox.Text) < 45) Then
                 valid = True
-            ElseIf NameTextBox.Text = "" And AddressTextBox.Text = "" And
-                CityTextBox.Text = "" And StateTextBox.Text = "" And
-                ZipCodeTextBox.Text = "" And BeginOdometerTextBox.Text = "" And
-                EndOdometerTextBox.Text = "" And DaysTextBox.Text = "" And
-                CInt(BeginOdometerTextBox.Text) > CInt(EndOdometerTextBox.Text) And
+            ElseIf NameTextBox.Text = "" Or AddressTextBox.Text = "" Or
+                CityTextBox.Text = "" Or StateTextBox.Text = "" Or
+                ZipCodeTextBox.Text = "" Or BeginOdometerTextBox.Text = "" Or
+                EndOdometerTextBox.Text = "" Or DaysTextBox.Text = "" Or
+                CInt(BeginOdometerTextBox.Text) > CInt(EndOdometerTextBox.Text) Or
                 (CInt(DaysTextBox.Text) < 0 Or CInt(DaysTextBox.Text) > 45) Then
                 valid = False
             End If
-
         Catch ex As Exception
-            'false "A text field is Invalid"
             valid = False
         End Try
+
         'if empty sends message and sets cursor to the box.
-        If NameTextBox.Text = "" Then
-            NameTextBox.Focus()
-            MsgBox(FailMessage("Name is blank. Please Fill Out Form Completely.", True, False))
-        End If
-        If AddressTextBox.Text = "" Then
-            AddressTextBox.Focus()
-            MsgBox(FailMessage("Address is blank. Please Fill Out Form Completely.", True, False))
-        End If
-        If CityTextBox.Text = "" Then
-            CityTextBox.Focus()
-            MsgBox(FailMessage("City is blank. Please Fill Out Form Completely.", True, False))
+        Try
+            If (CInt(DaysTextBox.Text) < 0 Or CInt(DaysTextBox.Text) > 45) Then
+                valid = False
+                DaysTextBox.Focus()
+                FailMessage("Number of days must be between 0 and 45.", True, False)
+            End If
+        Catch ex As Exception
+            valid = False
+            DaysTextBox.Focus()
+            FailMessage("Number of days must be a whole number.", True, False)
+        End Try
+        Try
+            If CInt(BeginOdometerTextBox.Text) > CInt(EndOdometerTextBox.Text) Then
+                valid = False
+                BeginOdometerTextBox.Focus()
+                FailMessage("Verify beginning odometer reading is lower than the ending reading.", True, False)
+            End If
+        Catch ex As Exception
+            valid = False
+            BeginOdometerTextBox.Focus()
+            FailMessage("Odometer readings must be a whole number.", True, False)
+        End Try
+        If ZipCodeTextBox.Text = "" Then
+            ZipCodeTextBox.Focus()
+            FailMessage("Zip Code is blank.", True, False)
         End If
         If StateTextBox.Text = "" Then
             StateTextBox.Focus()
-            MsgBox(FailMessage("State is blank. Please Fill Out Form Completely.", True, False))
+            FailMessage("State is blank.", True, False)
         End If
-        If ZipCodeTextBox.Text = "" Then
-            ZipCodeTextBox.Focus()
-            MsgBox(FailMessage("Zip Code is blank. Please Fill Out Form Completely.", True, False))
+        If CityTextBox.Text = "" Then
+            CityTextBox.Focus()
+            FailMessage("City is blank.", True, False)
         End If
-        If BeginOdometerTextBox.Text = "" Then
-            BeginOdometerTextBox.Focus()
-            MsgBox(FailMessage("Beginning Odometer Number is blank. Please Fill Out Form Completely.",
-                               True, False))
+        If AddressTextBox.Text = "" Then
+            AddressTextBox.Focus()
+            FailMessage("Address is blank.", True, False)
         End If
-        If EndOdometerTextBox.Text = "" Then
-            EndOdometerTextBox.Focus()
-            MsgBox(FailMessage("End Odometer Number is blank. Please Fill Out Form Completely.", True, False))
+        If NameTextBox.Text = "" Then
+            NameTextBox.Focus()
+            FailMessage("Name is blank.", True, False)
         End If
-        If DaysTextBox.Text = "" Then
-            DaysTextBox.Focus()
-            MsgBox(FailMessage("Numbers of days is blank. Please Fill Out Form Completely.", True, False))
+
+        'If an error occurs then display a single message pop up with all accumulated data
+        If valid = False Then
+            MsgBox(FailMessage("", False, False))
         End If
 
         Return valid
     End Function
 
     Function FailMessage(errMessage As String, addMessage As Boolean, clearMessage As Boolean) As String
-        Dim alertMessage As String
-        alertMessage = ""
+        Static alertMessage As String
+
         If clearMessage = False Then
             If addMessage = True Then
                 alertMessage &= errMessage & vbNewLine
             End If
         Else
-            alertMessage &= ""
+            alertMessage = ""
         End If
 
         Return alertMessage
