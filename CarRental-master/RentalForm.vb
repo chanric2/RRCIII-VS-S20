@@ -12,6 +12,8 @@ Public Class RentalForm
         If ValidText() = True Then
             'calculate information
             MsgBox("Pass Vaild") 'this will be taken out once all vaildations can be confirmed
+            'TODO daily charge, mileage charge, discount
+
         End If
     End Sub
     Function ValidText() As Boolean
@@ -45,22 +47,28 @@ Public Class RentalForm
             If (CInt(DaysTextBox.Text) < 0 Or CInt(DaysTextBox.Text) > 45) Then
                 valid = False
                 DaysTextBox.Focus()
+                DaysTextBox.Text = ""
                 FailMessage("Number of days must be between 0 and 45.", True, False)
             End If
         Catch ex As Exception
             valid = False
             DaysTextBox.Focus()
+            DaysTextBox.Text = ""
             FailMessage("Number of days must be a whole number.", True, False)
         End Try
         Try
             If CInt(BeginOdometerTextBox.Text) > CInt(EndOdometerTextBox.Text) Then
                 valid = False
                 BeginOdometerTextBox.Focus()
+                BeginOdometerTextBox.Text = ""
+                EndOdometerTextBox.Text = ""
                 FailMessage("Verify beginning odometer reading is lower than the ending reading.", True, False)
             End If
         Catch ex As Exception
             valid = False
             BeginOdometerTextBox.Focus()
+            BeginOdometerTextBox.Text = ""
+            EndOdometerTextBox.Text = ""
             FailMessage("Odometer readings must be a whole number.", True, False)
         End Try
         If ZipCodeTextBox.Text = "" Then
@@ -105,6 +113,7 @@ Public Class RentalForm
 
         Return alertMessage
     End Function
+
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
         Dim response = MsgBox("Click YES to Quit." & vbNewLine & "Click NO to Continue.", MsgBoxStyle.YesNo _
                               Or MsgBoxStyle.DefaultButton2 Or MsgBoxStyle.Exclamation,
