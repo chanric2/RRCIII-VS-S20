@@ -9,11 +9,16 @@ Option Strict On
 Option Compare Binary
 Public Class RentalForm
     Private Sub CalculateButton_Click(sender As Object, e As EventArgs) Handles CalculateButton.Click
+        Dim dailyCharge As Integer
+        Dim mi As Integer
         If ValidText() = True Then
             'calculate information
-            MsgBox("Pass Vaild") 'this will be taken out once all vaildations can be confirmed
-            'TODO daily charge, mileage charge, discount
-
+            'TODO mileage charge, discount
+            dailyCharge = 15 * CInt(DaysTextBox.Text)
+            DayChargeTextBox.Text = dailyCharge.ToString("C")
+            mi = CInt(EndOdometerTextBox.Text) - CInt(BeginOdometerTextBox.Text)
+            DistanceTextBox.Text = CStr(mi)
+            MileageCharge(DistanceTextBox.Text)
         End If
     End Sub
     Function ValidText() As Boolean
@@ -114,6 +119,19 @@ Public Class RentalForm
         Return alertMessage
     End Function
 
+    Function MileageCharge(ByRef miles As String) As Decimal
+        Dim charge As Decimal
+
+        If CDbl(miles) <= 200 Then
+            charge = CDec(miles) * 0
+        ElseIf CDbl(miles) > 500 Then
+            charge = ((300 * 0.12D) + (CDec(miles) - 500) * 0.1D)
+        Else
+            charge = (CDec(miles) - 200) * 0.12D
+        End If
+
+        Return charge
+    End Function
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
         Dim response = MsgBox("Click YES to Quit." & vbNewLine & "Click NO to Continue.", MsgBoxStyle.YesNo _
                               Or MsgBoxStyle.DefaultButton2 Or MsgBoxStyle.Exclamation,
