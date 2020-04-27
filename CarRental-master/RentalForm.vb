@@ -17,8 +17,9 @@ Public Class RentalForm
             dailyCharge = 15 * CInt(DaysTextBox.Text)
             DayChargeTextBox.Text = dailyCharge.ToString("C")
             mi = CInt(EndOdometerTextBox.Text) - CInt(BeginOdometerTextBox.Text)
-            DistanceTextBox.Text = CStr(mi)
-            MileageCharge(DistanceTextBox.Text)
+            DistanceTextBox.Text = CStr(mi) & " mi"
+            MileageCharge(CStr(mi))
+            MileChargeTextBox.Text = mi.ToString("C")
         End If
     End Sub
     Function ValidText() As Boolean
