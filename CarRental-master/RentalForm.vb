@@ -18,8 +18,7 @@ Public Class RentalForm
             DayChargeTextBox.Text = dailyCharge.ToString("C")
             mi = CInt(EndOdometerTextBox.Text) - CInt(BeginOdometerTextBox.Text)
             DistanceTextBox.Text = CStr(mi) & " mi"
-            MileageCharge(CStr(mi))
-            MileChargeTextBox.Text = mi.ToString("C")
+            MileChargeTextBox.Text = MileageCharge(CStr(mi)).ToString("C")
         End If
     End Sub
     Function ValidText() As Boolean
@@ -126,7 +125,7 @@ Public Class RentalForm
         If CDbl(miles) <= 200 Then
             charge = CDec(miles) * 0
         ElseIf CDbl(miles) > 500 Then
-            charge = ((300 * 0.12D) + (CDec(miles) - 500) * 0.1D)
+            charge = (36 + (CDec(miles) - 500) * 0.1D)
         Else
             charge = (CDec(miles) - 200) * 0.12D
         End If
