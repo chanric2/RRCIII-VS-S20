@@ -11,14 +11,21 @@ Public Class RentalForm
     Private Sub CalculateButton_Click(sender As Object, e As EventArgs) Handles CalculateButton.Click
         Dim dailyCharge As Integer
         Dim mi As Integer
+        Dim ki As Double
         If ValidText() = True Then
             'calculate information
-            'TODO mileage charge, discount
+            'TODO discount
             dailyCharge = 15 * CInt(DaysTextBox.Text)
             DayChargeTextBox.Text = dailyCharge.ToString("C")
-            mi = CInt(EndOdometerTextBox.Text) - CInt(BeginOdometerTextBox.Text)
+            If KilometersradioButton.Checked = True Then
+                ki = CInt(EndOdometerTextBox.Text) - CInt(BeginOdometerTextBox.Text)
+                mi = CInt(ki * 0.62)
+            ElseIf MilesradioButton.Checked = True Then
+                mi = CInt(EndOdometerTextBox.Text) - CInt(BeginOdometerTextBox.Text)
+            End If
             DistanceTextBox.Text = CStr(mi) & " mi"
             MileChargeTextBox.Text = MileageCharge(CStr(mi)).ToString("C")
+
         End If
     End Sub
     Function ValidText() As Boolean
