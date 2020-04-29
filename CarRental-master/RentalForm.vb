@@ -10,6 +10,7 @@ Option Compare Binary
 Public Class RentalForm
     Private Sub CalculateButton_Click(sender As Object, e As EventArgs) Handles CalculateButton.Click
         Dim dailyCharge As Decimal
+        Dim youOwe As Decimal
         Dim mi As Decimal
         Dim ki As Double
         If ValidText() = True Then
@@ -25,7 +26,8 @@ Public Class RentalForm
             DistanceTextBox.Text = CStr(mi) & " mi"
             MileChargeTextBox.Text = MileageCharge(CStr(mi)).ToString("C")
             DiscountTextBox.Text = Discount().ToString("C")
-            TotalTextBox.Text = CStr(CDec(MileChargeTextBox.Text) + CDec(DayChargeTextBox.Text) - CDec(DiscountTextBox.Text))
+            youOwe = CDec(MileChargeTextBox.Text) + CDec(DayChargeTextBox.Text) - CDec(DiscountTextBox.Text)
+            TotalTextBox.Text = youOwe.ToString("C")
         End If
     End Sub
 
@@ -158,6 +160,53 @@ Public Class RentalForm
         Return dicount
     End Function
 
+    Private Sub Summary(sender As Object, e As EventArgs) Handles SummaryButton.Click
+        'total customers
+        SummaryMessage("Total Customers:" & Space(25) & "4", True, False)
+        'total miles
+        SummaryMessage("Total Miles Driven:" & Space(15) & "15 mi", True, False)
+        'total you owes
+        SummaryMessage("Total Charges:" & Space(15) & "19,000.32", True, False)
+        MsgBox(SummaryMessage("", False, False), MsgBoxStyle.Information, "Summary: All Rentals From Store 2319")
+
+    End Sub
+
+    Function SummaryMessage(sumMessage As String, addMessage As Boolean, clearMessage As Boolean) As String
+        Static returnedMessage As String
+
+        If clearMessage = False Then
+            If addMessage = True Then
+                returnedMessage &= sumMessage & vbNewLine
+            End If
+        Else
+            returnedMessage = ""
+        End If
+
+        Return returnedMessage
+    End Function
+
+    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click, SummaryButton.Click
+        NameTextBox.Text = ""
+        AddressTextBox.Text = ""
+        CityTextBox.Text = ""
+        StateTextBox.Text = ""
+        ZipCodeTextBox.Text = ""
+        BeginOdometerTextBox.Text = ""
+        EndOdometerTextBox.Text = ""
+        DaysTextBox.Text = ""
+        BeginOdometerTextBox.Text = ""
+        EndOdometerTextBox.Text = ""
+        DistanceTextBox.Text = ""
+        MileChargeTextBox.Text = ""
+        DayChargeTextBox.Text = ""
+        DiscountTextBox.Text = ""
+        TotalTextBox.Text = ""
+        AAAcheckbox.Checked = False
+        Seniorcheckbox.Checked = False
+        MilesradioButton.Checked = True
+
+    End Sub
+
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
         Dim response = MsgBox("Click YES to Quit." & vbNewLine & "Click NO to Continue.",
                               MsgBoxStyle.YesNo Or MsgBoxStyle.DefaultButton2 Or
@@ -166,4 +215,5 @@ Public Class RentalForm
             Me.Close()
         End If
     End Sub
+
 End Class
