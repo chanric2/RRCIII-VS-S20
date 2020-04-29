@@ -9,25 +9,26 @@ Option Strict On
 Option Compare Binary
 Public Class RentalForm
     Private Sub CalculateButton_Click(sender As Object, e As EventArgs) Handles CalculateButton.Click
-        Dim dailyCharge As Integer
-        Dim mi As Integer
+        Dim dailyCharge As Decimal
+        Dim mi As Decimal
         Dim ki As Double
         If ValidText() = True Then
             'calculate information
-            'TODO discount
-            dailyCharge = 15 * CInt(DaysTextBox.Text)
+            dailyCharge = 15 * CDec(DaysTextBox.Text)
             DayChargeTextBox.Text = dailyCharge.ToString("C")
             If KilometersradioButton.Checked = True Then
-                ki = CInt(EndOdometerTextBox.Text) - CInt(BeginOdometerTextBox.Text)
-                mi = CInt(ki * 0.62)
+                ki = CDec(EndOdometerTextBox.Text) - CDec(BeginOdometerTextBox.Text)
+                mi = CDec(ki * 0.62)
             ElseIf MilesradioButton.Checked = True Then
-                mi = CInt(EndOdometerTextBox.Text) - CInt(BeginOdometerTextBox.Text)
+                mi = CDec(EndOdometerTextBox.Text) - CDec(BeginOdometerTextBox.Text)
             End If
             DistanceTextBox.Text = CStr(mi) & " mi"
             MileChargeTextBox.Text = MileageCharge(CStr(mi)).ToString("C")
-
+            DiscountTextBox.Text = Discount().ToString("C")
+            TotalTextBox.Text = CStr(CDec(MileChargeTextBox.Text) + CDec(DayChargeTextBox.Text) - CDec(DiscountTextBox.Text))
         End If
     End Sub
+
     Function ValidText() As Boolean
         'Start by creating new validation on calulate
         FailMessage("", False, True)
@@ -74,7 +75,8 @@ Public Class RentalForm
                 BeginOdometerTextBox.Focus()
                 BeginOdometerTextBox.Text = ""
                 EndOdometerTextBox.Text = ""
-                FailMessage("Verify beginning odometer reading is lower than the ending reading.", True, False)
+                FailMessage("Verify beginning odometer reading is lower than the 
+                    ending reading.", True, False)
             End If
         Catch ex As Exception
             valid = False
@@ -139,10 +141,27 @@ Public Class RentalForm
 
         Return charge
     End Function
+
+    Function Discount() As Decimal
+        Dim dicount As Decimal = 0D
+
+        If AAAcheckbox.Checked = True Then
+            '5%
+            dicount += (CDec(DayChargeTextBox.Text) + CDec(MileChargeTextBox.Text)) * 0.05D
+        End If
+
+        If Seniorcheckbox.Checked = True Then
+            '3%
+            dicount += (CDec(DayChargeTextBox.Text) + CDec(MileChargeTextBox.Text)) * 0.03D
+        End If
+
+        Return dicount
+    End Function
+
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
-        Dim response = MsgBox("Click YES to Quit." & vbNewLine & "Click NO to Continue.", MsgBoxStyle.YesNo _
-                              Or MsgBoxStyle.DefaultButton2 Or MsgBoxStyle.Exclamation,
-                              "Are You Sure You Want To QUIT?")
+        Dim response = MsgBox("Click YES to Quit." & vbNewLine & "Click NO to Continue.",
+                              MsgBoxStyle.YesNo Or MsgBoxStyle.DefaultButton2 Or
+                              MsgBoxStyle.Exclamation, "Are You Sure You Want To QUIT?")
         If response = MsgBoxResult.Yes Then
             Me.Close()
         End If
