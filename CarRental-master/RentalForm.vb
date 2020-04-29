@@ -14,7 +14,8 @@ Public Class RentalForm
         Dim mi As Decimal
         Dim ki As Double
         If ValidText() = True Then
-            'calculate information
+            'calculate information and activate summary
+            SummaryButton.Enabled = True
             dailyCharge = 15 * CDec(DaysTextBox.Text)
             DayChargeTextBox.Text = dailyCharge.ToString("C")
             If KilometersradioButton.Checked = True Then
@@ -161,12 +162,21 @@ Public Class RentalForm
     End Function
 
     Private Sub Summary(sender As Object, e As EventArgs) Handles SummaryButton.Click
+        Static customerNumber As Integer
+        Static milesDriven As String
+        Static finalPrice As Decimal
         'total customers
-        SummaryMessage("Total Customers:" & Space(25) & "4", True, False)
-        'total miles
-        SummaryMessage("Total Miles Driven:" & Space(15) & "15 mi", True, False)
-        'total you owes
-        SummaryMessage("Total Charges:" & Space(15) & "19,000.32", True, False)
+        If ValidText() = True Then
+            customerNumber += 1
+            SummaryMessage("Total Customers:" & Space(25) & customerNumber, True, False)
+            'total miles
+            'TOFIX += concatenates instead of addition of the old and new value
+            milesDriven += DistanceTextBox.Text
+            SummaryMessage("Total Miles Driven:" & Space(15) & milesDriven, True, False)
+            'total you owes
+            SummaryMessage("Total Charges:" & Space(15) & finalPrice, True, False)
+        End If
+
         MsgBox(SummaryMessage("", False, False), MsgBoxStyle.Information, "Summary: All Rentals From Store 2319")
 
     End Sub
@@ -201,10 +211,11 @@ Public Class RentalForm
         DayChargeTextBox.Text = ""
         DiscountTextBox.Text = ""
         TotalTextBox.Text = ""
+        SummaryButton.Enabled = False
         AAAcheckbox.Checked = False
         Seniorcheckbox.Checked = False
         MilesradioButton.Checked = True
-
+        SummaryMessage("", False, True)
     End Sub
 
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
