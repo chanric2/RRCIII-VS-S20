@@ -24,11 +24,14 @@ Public Class RentalForm
             ElseIf MilesradioButton.Checked = True Then
                 mi = CDec(EndOdometerTextBox.Text) - CDec(BeginOdometerTextBox.Text)
             End If
+            MilesDriven(mi)
             DistanceTextBox.Text = CStr(mi) & " mi"
             MileChargeTextBox.Text = MileageCharge(CStr(mi)).ToString("C")
             DiscountTextBox.Text = Discount().ToString("C")
             youOwe = CDec(MileChargeTextBox.Text) + CDec(DayChargeTextBox.Text) - CDec(DiscountTextBox.Text)
+            FinalPrice(youOwe)
             TotalTextBox.Text = youOwe.ToString("C")
+            CustomerNumber(1)
         End If
     End Sub
 
@@ -162,24 +165,34 @@ Public Class RentalForm
     End Function
 
     Private Sub Summary(sender As Object, e As EventArgs) Handles SummaryButton.Click
-        Static customerNumber As Integer
-        Static milesDriven As String
-        Static finalPrice As Decimal
-        'total customers
-        If ValidText() = True Then
-            customerNumber += 1
-            SummaryMessage("Total Customers:" & Space(25) & customerNumber, True, False)
-            'total miles
-            'TOFIX += concatenates instead of addition of the old and new value
-            milesDriven += DistanceTextBox.Text
-            SummaryMessage("Total Miles Driven:" & Space(15) & milesDriven, True, False)
-            'total you owes
-            SummaryMessage("Total Charges:" & Space(15) & finalPrice, True, False)
-        End If
+        'total number of customers
+        SummaryMessage("Total Customers:".PadRight(45) & CustomerNumber(0), True, False)
+        'total miles
+        SummaryMessage("Total Miles Driven:".PadRight(40) & MilesDriven(0) & " mi", True, False)
+        'total you owes
+        SummaryMessage("Total Charges:".PadRight(40) & FinalPrice(0).ToString("C"), True, False)
 
-        MsgBox(SummaryMessage("", False, False), MsgBoxStyle.Information, "Summary: All Rentals From Store 2319")
+        MsgBox(SummaryMessage("", False, False), MsgBoxStyle.Information Or MsgBoxStyle.MsgBoxRight, "Summary: All Rentals From Store 2319")
 
     End Sub
+
+    Function CustomerNumber(currentCustomer As Decimal) As Decimal
+        Dim customerCount As Decimal
+        customerCount += currentCustomer
+        Return customerCount
+    End Function
+
+    Function MilesDriven(currentMiles As Decimal) As Decimal
+        Dim mileCount As Decimal
+        mileCount += currentMiles
+        Return mileCount
+    End Function
+
+    Function FinalPrice(currentPrice As Decimal) As Decimal
+        Dim priceCount As Decimal
+        priceCount += currentPrice
+        Return priceCount
+    End Function
 
     Function SummaryMessage(sumMessage As String, addMessage As Boolean, clearMessage As Boolean) As String
         Static returnedMessage As String
