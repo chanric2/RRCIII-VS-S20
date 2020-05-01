@@ -8,7 +8,7 @@ Option Explicit On
 Option Strict On
 Option Compare Binary
 Public Class RentalForm
-    Private Sub CalculateButton_Click(sender As Object, e As EventArgs) Handles CalculateButton.Click
+    Private Sub CalculateButton_Click(sender As Object, e As EventArgs) Handles CalculateButton.Click, CalculateToolStripMenuItem.Click
         Dim dailyCharge As Decimal
         Dim youOwe As Decimal
         Dim mi As Decimal
@@ -16,8 +16,10 @@ Public Class RentalForm
         If ValidText() = True Then
             'calculate information and activate summary
             SummaryButton.Enabled = True
+            'Pricing for daily charges $15.00 per day rented ad display
             dailyCharge = 15 * CDec(DaysTextBox.Text)
             DayChargeTextBox.Text = dailyCharge.ToString("C")
+            'Converion of kilometers and miles and calculated miles driven by odometer readings and stores the data for summary and display
             If KilometersradioButton.Checked = True Then
                 ki = CDec(EndOdometerTextBox.Text) - CDec(BeginOdometerTextBox.Text)
                 mi = CDec(ki * 0.62)
@@ -26,19 +28,23 @@ Public Class RentalForm
             End If
             MilesDriven(mi)
             DistanceTextBox.Text = CStr(mi) & " mi"
-            MileChargeTextBox.Text = MileageCharge(CStr(mi)).ToString("C")
+            'Pricing for miles driven and display
+            MileChargeTextBox.Text = MileageCharge(mi).ToString("C")
+            'Pricing for discounts available and display
             DiscountTextBox.Text = Discount().ToString("C")
+            'Price of finalized total from the other output displays and stores the data for summary and display
             youOwe = CDec(MileChargeTextBox.Text) + CDec(DayChargeTextBox.Text) - CDec(DiscountTextBox.Text)
             FinalPrice(youOwe)
             TotalTextBox.Text = youOwe.ToString("C")
+            'Stores the data for summary
             CustomerNumber(1)
         End If
     End Sub
 
     Function ValidText() As Boolean
-        'Start by creating new validation on calulate
+        'Start by creating new validation on calculate
         FailMessage("", False, True)
-        'Check empty text and if values are in tolerance.
+        'Checks empty text and if values are in tolerances.
         'True if all text fields are filled, false a text field is invalid.
         Dim valid As Boolean
         Try
@@ -61,7 +67,7 @@ Public Class RentalForm
             valid = False
         End Try
 
-        'if empty sends message and sets cursor to the box.
+        'if empty sends message and sets cursor to the appropiate box.
         Try
             If (CInt(DaysTextBox.Text) < 0 Or CInt(DaysTextBox.Text) > 45) Then
                 valid = False
@@ -134,15 +140,20 @@ Public Class RentalForm
         Return alertMessage
     End Function
 
-    Function MileageCharge(ByRef miles As String) As Decimal
+    Function MileageCharge(miles As Decimal) As Decimal
         Dim charge As Decimal
+        'determines if miles driven are:
+        'below 200 = free
+        'between 201 and 500 = $0.12 per mile
+        'above 500 = $0.10 per mile
+        'sets price accordingly
 
-        If CDbl(miles) <= 200 Then
-            charge = CDec(miles) * 0
-        ElseIf CDbl(miles) > 500 Then
-            charge = (36 + (CDec(miles) - 500) * 0.1D)
+        If miles <= 200 Then
+            charge = miles * 0
+        ElseIf miles > 500 Then
+            charge = (36 + (miles - 500) * 0.1D)
         Else
-            charge = (CDec(miles) - 200) * 0.12D
+            charge = (miles - 200) * 0.12D
         End If
 
         Return charge
@@ -152,44 +163,45 @@ Public Class RentalForm
         Dim dicount As Decimal = 0D
 
         If AAAcheckbox.Checked = True Then
-            '5%
+            '5% AAA discount
             dicount += (CDec(DayChargeTextBox.Text) + CDec(MileChargeTextBox.Text)) * 0.05D
         End If
 
         If Seniorcheckbox.Checked = True Then
-            '3%
+            '3% Senior citizen discount
             dicount += (CDec(DayChargeTextBox.Text) + CDec(MileChargeTextBox.Text)) * 0.03D
         End If
 
         Return dicount
     End Function
 
-    Private Sub Summary(sender As Object, e As EventArgs) Handles SummaryButton.Click
+    Private Sub Summary(sender As Object, e As EventArgs) Handles SummaryButton.Click, SummaryToolStripMenuItem.Click
         'total number of customers
-        SummaryMessage("Total Customers:".PadRight(45) & CustomerNumber(0), True, False)
-        'total miles
-        SummaryMessage("Total Miles Driven:".PadRight(40) & MilesDriven(0) & " mi", True, False)
-        'total you owes
-        SummaryMessage("Total Charges:".PadRight(40) & FinalPrice(0).ToString("C"), True, False)
+        SummaryMessage("Total Customers:" & CustomerNumber(0).ToString.PadLeft(48), True, False)
+        'total miles of all customers
+        SummaryMessage("Total Miles Driven:" & (MilesDriven(0) & " mi").ToString.PadLeft(40), True, False)
+        'total Price of all customers
+        SummaryMessage("Total Charges:" & FinalPrice(0).ToString("C").PadLeft(40), True, False)
 
-        MsgBox(SummaryMessage("", False, False), MsgBoxStyle.Information Or MsgBoxStyle.MsgBoxRight, "Summary: All Rentals From Store 2319")
+        MsgBox(SummaryMessage("", False, False), MsgBoxStyle.Information Or
+               MsgBoxStyle.MsgBoxRight, "Summary: All Rentals From Store 2319")
 
     End Sub
 
     Function CustomerNumber(currentCustomer As Decimal) As Decimal
-        Dim customerCount As Decimal
+        Static customerCount As Decimal
         customerCount += currentCustomer
         Return customerCount
     End Function
 
     Function MilesDriven(currentMiles As Decimal) As Decimal
-        Dim mileCount As Decimal
+        Static mileCount As Decimal
         mileCount += currentMiles
         Return mileCount
     End Function
 
     Function FinalPrice(currentPrice As Decimal) As Decimal
-        Dim priceCount As Decimal
+        Static priceCount As Decimal
         priceCount += currentPrice
         Return priceCount
     End Function
@@ -208,7 +220,7 @@ Public Class RentalForm
         Return returnedMessage
     End Function
 
-    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click, SummaryButton.Click
+    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click, SummaryButton.Click, ClearToolStripMenuItem.Click
         NameTextBox.Text = ""
         AddressTextBox.Text = ""
         CityTextBox.Text = ""
@@ -231,7 +243,7 @@ Public Class RentalForm
         SummaryMessage("", False, True)
     End Sub
 
-    Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
+    Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click, ExitToolStripMenuItem.Click
         Dim response = MsgBox("Click YES to Quit." & vbNewLine & "Click NO to Continue.",
                               MsgBoxStyle.YesNo Or MsgBoxStyle.DefaultButton2 Or
                               MsgBoxStyle.Exclamation, "Are You Sure You Want To QUIT?")
@@ -240,4 +252,10 @@ Public Class RentalForm
         End If
     End Sub
 
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+        MsgBox("Made by Richard Chandler III" & vbNewLine & "Spring 2020" &
+               vbNewLine & "RCET 0265" &
+               vbNewLine & "In association with ISU Robotics",
+               MsgBoxStyle.Question, "About Store 2319")
+    End Sub
 End Class
