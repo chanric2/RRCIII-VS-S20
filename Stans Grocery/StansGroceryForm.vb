@@ -1,4 +1,14 @@
-﻿Public Class StansGroceryForm
+﻿'Richard Chandler III
+'RCET0265
+'Spring 2020
+'Stan's grocery
+'https://github.com/chanric2/RRCIII-VS-S20
+
+Option Compare Binary
+Option Explicit On
+Option Strict On
+
+Public Class StansGroceryForm
     'create array with 15 total foods (3 aisles, 5 items per aisle)
     ReadOnly food(2, 4) As String
 
