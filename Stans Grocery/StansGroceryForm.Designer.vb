@@ -25,7 +25,6 @@ Partial Class StansGroceryForm
         Me.components = New System.ComponentModel.Container()
         Me.TopMenuStrip = New System.Windows.Forms.MenuStrip()
         Me.FileTopMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.FileDirectoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SearchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpTopMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -54,27 +53,21 @@ Partial Class StansGroceryForm
         '
         'FileTopMenuItem
         '
-        Me.FileTopMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileDirectoryToolStripMenuItem, Me.SearchToolStripMenuItem, Me.ExitToolStripMenuItem})
+        Me.FileTopMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SearchToolStripMenuItem, Me.ExitToolStripMenuItem})
         Me.FileTopMenuItem.Name = "FileTopMenuItem"
         Me.FileTopMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileTopMenuItem.Text = "&File"
         '
-        'FileDirectoryToolStripMenuItem
-        '
-        Me.FileDirectoryToolStripMenuItem.Name = "FileDirectoryToolStripMenuItem"
-        Me.FileDirectoryToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
-        Me.FileDirectoryToolStripMenuItem.Text = "File Directory"
-        '
         'SearchToolStripMenuItem
         '
         Me.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem"
-        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
+        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SearchToolStripMenuItem.Text = "Search"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'HelpTopMenuItem
@@ -199,7 +192,6 @@ Partial Class StansGroceryForm
     Friend WithEvents SearchButton As Button
     Friend WithEvents LeftGroupBox As GroupBox
     Friend WithEvents DisplayLabel As Label
-    Friend WithEvents FileDirectoryToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SearchToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents StansGuideToolTip As ToolTip
